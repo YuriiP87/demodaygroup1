@@ -1,0 +1,17 @@
+.scroll-up {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    display: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--dark);
+    color: var(--white);
+    font-size: 24px;
+}
+
+.scroll-up.is-visible {
+    display: block;
+}

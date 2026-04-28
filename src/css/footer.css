@@ -1,21 +1,78 @@
 .footer {
-  padding: 20px 0;
+    padding: 40px 0 24px;
+    background-color: var(--dark);
+    color: var(--white);
 }
-.footer-desc {
-  text-align: center;
+
+.footer-container {
+    display: grid;
+    gap: 40px;
 }
-.footer-link {
-  position: relative;
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 20px;
 }
-.footer-link::before {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg);
-  z-index: -1;
-  width: 110%;
-  height: 24%;
-  background-color: #41d1ff;
-  transition: 200ms ease;
+
+.footer-socials {
+    display: flex;
+}
+
+.footer-socials a {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-title {
+    max-width: 520px;
+    font-size: 38px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.footer-title span {
+    font-style: italic;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.subscribe-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.subscribe-form input {
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--white);
+    border-radius: 30px;
+    background-color: transparent;
+    color: var(--white);
+}
+
+.subscribe-form button {
+    height: 44px;
+    border-radius: 30px;
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+@media screen and (min-width: 768px) {
+    .footer {
+        padding: 64px 0 32px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: start;
+    }
+
+    .footer-title {
+        font-size: 56px;
+    }
 }
