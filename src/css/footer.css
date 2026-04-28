@@ -1,78 +1,78 @@
 .footer {
-    padding: 40px 0 24px;
-    background-color: var(--dark);
-    color: var(--white);
+  padding: 40px 0 24px;
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 .footer-container {
-    display: grid;
-    gap: 40px;
+  display: grid;
+  gap: 40px;
 }
 
 .footer-logo {
-    display: inline-block;
-    margin-bottom: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .footer-socials {
-    display: flex;
+  display: flex;
 }
 
 .footer-socials a {
-    border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .footer-title {
-    max-width: 520px;
-    font-size: 38px;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
+  max-width: 520px;
+  font-size: 38px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .footer-title span {
-    font-style: italic;
+  font-style: italic;
 }
 
 .subscribe-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .subscribe-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 14px;
 }
 
 .subscribe-form input {
-    height: 44px;
-    padding: 0 16px;
-    border: 1px solid var(--white);
-    border-radius: 30px;
-    background-color: transparent;
-    color: var(--white);
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--white);
+  border-radius: 30px;
+  background-color: transparent;
+  color: var(--white);
 }
 
 .subscribe-form button {
-    height: 44px;
-    border-radius: 30px;
-    background-color: var(--white);
-    color: var(--dark);
+  height: 44px;
+  border-radius: 30px;
+  background-color: var(--white);
+  color: var(--dark);
 }
 
 @media screen and (min-width: 768px) {
-    .footer {
-        padding: 64px 0 32px;
-    }
+  .footer {
+    padding: 64px 0 32px;
+  }
 
-    .footer-container {
-        grid-template-columns: 1fr 2fr 1fr;
-        align-items: start;
-    }
+  .footer-container {
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: start;
+  }
 
-    .footer-title {
-        font-size: 56px;
-    }
+  .footer-title {
+    font-size: 56px;
+  }
 }

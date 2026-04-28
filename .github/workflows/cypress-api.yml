@@ -1,0 +1,27 @@
+name: Cypress API tests
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    name: Run Cypress API suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          command: npx cypress run
+        env:
+          CYPRESS_API_BASE_URL:
+            ${{ vars.CYPRESS_API_BASE_URL ||
+            'https://your-energy.b.goit.study/api' }}
