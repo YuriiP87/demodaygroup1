@@ -24,8 +24,11 @@ filterButtons.forEach(button => {
     state.page = 1;
     state.mode = 'categories';
 
-    if (searchForm) searchForm.classList.add('is-hidden');
-    if (currentCategoryEl) currentCategoryEl.textContent = '';
+    searchForm?.classList.add('is-hidden');
+
+    if (currentCategoryEl) {
+      currentCategoryEl.textContent = '';
+    }
 
     loadCategories();
   });

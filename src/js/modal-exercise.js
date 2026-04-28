@@ -30,7 +30,9 @@ function toggleFavorite(exercise) {
 }
 
 function renderModal(exercise) {
-  const buttonText = isFavorite(exercise._id) ? 'Remove from favorites' : 'Add to favorites';
+  const buttonText = isFavorite(exercise._id)
+    ? 'Remove from favorites'
+    : 'Add to favorites';
 
   modalContent.innerHTML = `
     <div class="modal-content-grid">
@@ -72,7 +74,7 @@ export async function openExerciseModal(id) {
   try {
     const exercise = await getExerciseById(id);
     renderModal(exercise);
-  } catch {
+  } catch (error) {
     modalContent.innerHTML = '<p>Failed to load exercise.</p>';
   }
 }
@@ -84,14 +86,16 @@ function closeModal() {
   document.body.classList.remove('no-scroll');
 }
 
-if (closeBtn) closeBtn.addEventListener('click', closeModal);
+closeBtn?.addEventListener('click', closeModal);
 
-if (modal) {
-  modal.addEventListener('click', event => {
-    if (event.target === modal) closeModal();
-  });
-}
+modal?.addEventListener('click', event => {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
 
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeModal();
+  if (event.key === 'Escape') {
+    closeModal();
+  }
 });

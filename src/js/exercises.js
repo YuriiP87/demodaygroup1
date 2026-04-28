@@ -64,7 +64,7 @@ export async function loadExercises() {
         openExerciseModal(button.dataset.start);
       });
     });
-  } catch {
+  } catch (error) {
     exercisesList.innerHTML = '<li>Failed to load exercises.</li>';
   }
 }

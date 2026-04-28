@@ -2,18 +2,16 @@ import { subscribeUser } from './api.js';
 
 const form = document.querySelector('[data-subscribe-form]');
 
-if (form) {
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
+form?.addEventListener('submit', async event => {
+  event.preventDefault();
 
-    const email = event.currentTarget.elements.email.value.trim();
+  const email = event.currentTarget.elements.email.value.trim();
 
-    try {
-      await subscribeUser(email);
-      alert('Subscription created successfully');
-      form.reset();
-    } catch {
-      alert('Subscription failed. Try another email.');
-    }
-  });
-}
+  try {
+    await subscribeUser(email);
+    alert('Subscription created successfully');
+    form.reset();
+  } catch (error) {
+    alert('Subscription failed. Try another email.');
+  }
+});

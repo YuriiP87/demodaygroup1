@@ -44,7 +44,7 @@ async function initQuote() {
     );
 
     renderQuote(data);
-  } catch {
+  } catch (error) {
     quoteEl.innerHTML = '<p>Quote is temporarily unavailable.</p>';
   }
 }

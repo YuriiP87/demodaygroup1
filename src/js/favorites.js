@@ -42,7 +42,7 @@ function renderFavorites() {
 
   if (!favorites.length) {
     list.innerHTML = '';
-    empty.classList.remove('is-hidden');
+    empty?.classList.remove('is-hidden');
     return;
   }
 

@@ -22,6 +22,12 @@ function categoryMarkup(category) {
 export async function loadCategories() {
   if (!categoriesList) return;
 
+  categoriesList.classList.remove('is-hidden');
+
+  if (exercisesList) {
+    exercisesList.classList.add('is-hidden');
+  }
+
   categoriesList.innerHTML = '<li>Loading...</li>';
 
   try {
@@ -42,14 +48,17 @@ export async function loadCategories() {
         state.mode = 'exercises';
 
         categoriesList.classList.add('is-hidden');
-        exercisesList.classList.remove('is-hidden');
-        searchForm.classList.remove('is-hidden');
-        currentCategoryEl.textContent = `/ ${state.category}`;
+        exercisesList?.classList.remove('is-hidden');
+        searchForm?.classList.remove('is-hidden');
+
+        if (currentCategoryEl) {
+          currentCategoryEl.textContent = `/ ${state.category}`;
+        }
 
         loadExercises();
       });
     });
-  } catch {
+  } catch (error) {
     categoriesList.innerHTML = '<li>Failed to load categories.</li>';
   }
 }
