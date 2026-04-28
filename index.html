@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Energy</title>
+  <script type="module" crossorigin src="/demodaygroup1/assets/main-BXjn2ulz.js"></script>
+  <link rel="stylesheet" crossorigin href="/demodaygroup1/assets/main-DR0bPvCK.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a class="logo" href="/index.html">YOUR ENERGY</a>
+
+            <nav class="nav">
+                <a class="nav-link active" href="/index.html">Home</a>
+                <a class="nav-link" href="/favorites.html">Favorites</a>
+            </nav>
+
+            <ul class="social-list">
+                <li>
+                    <a href="https://www.facebook.com/goITclub/" target="_blank" rel="noopener noreferrer">f</a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/goitclub/" target="_blank" rel="noopener noreferrer">◎</a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/c/GoIT" target="_blank" rel="noopener noreferrer">▶</a>
+                </li>
+            </ul>
+
+            <button class="burger-btn" type="button" data-menu-open>☰</button>
+        </div>
+
+        <div class="mobile-menu" data-menu>
+            <button class="menu-close" type="button" data-menu-close>×</button>
+
+            <a class="logo mobile-logo" href="/index.html">YOUR ENERGY</a>
+
+            <nav class="mobile-nav">
+                <a class="nav-link active" href="/index.html">Home</a>
+                <a class="nav-link" href="/favorites.html">Favorites</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-top">
+                    <div>
+                        <h1 class="hero-title">
+                            Get <span>Body</span> in shape, Stay healthy
+                        </h1>
+
+                        <p class="hero-text">
+                            Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and
+                            nutrition support.
+                        </p>
+                    </div>
+
+                    <div class="hero-tags">
+                        <img class="hero-small-img" src="/demodaygroup1/assets/women-Cn7sl97W.png" alt="Women training" />
+
+                        <ul class="tags-list">
+                            <li>#Sport</li>
+                            <li>#Healthy</li>
+                            <li>#Workout</li>
+                            <li>#Diet</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <picture>
+                    <source srcset="/demodaygroup1/assets/women2x-DpjWwC2U.png" media="(min-resolution: 192dpi)" />
+                    <img class="hero-img" src="/demodaygroup1/assets/women-Cn7sl97W.png" alt="Women doing sport" />
+                </picture>
+            </div>
+        </section>
+
+        <section class="exercises-section">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">
+                        Exercises <span data-current-category></span>
+                    </h2>
+
+                    <div class="filters-wrap">
+                        <form class="search-form is-hidden" data-search-form>
+                            <input class="search-input" type="text" name="search" placeholder="Search" />
+                            <button class="search-btn" type="submit">⌕</button>
+                        </form>
+
+                        <ul class="filter-list">
+                            <li>
+                                <button class="filter-btn active" type="button" data-filter="Muscles">
+                                    Muscles
+                                </button>
+                            </li>
+                            <li>
+                                <button class="filter-btn" type="button" data-filter="Body parts">
+                                    Body parts
+                                </button>
+                            </li>
+                            <li>
+                                <button class="filter-btn" type="button" data-filter="Equipment">
+                                    Equipment
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="main-layout">
+                    <aside class="sidebar">
+                        <div class="quote-card" data-quote></div>
+
+                        <img class="sidebar-img" src="/demodaygroup1/assets/women-Cn7sl97W.png" alt="Sport lifestyle" />
+
+                        <div class="sport-card">
+                            <h3>110 min</h3>
+                            <p>Daily norm of sports</p>
+                            <span>
+                                The World Health Organization recommends at least 150 minutes of moderate-intensity
+                                aerobic physical activity throughout the week.
+                            </span>
+                        </div>
+                    </aside>
+
+                    <div class="content-area">
+                        <ul class="categories-list" data-categories-list></ul>
+                        <ul class="exercises-list is-hidden" data-exercises-list></ul>
+                        <div class="pagination" data-pagination></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div>
+                <a class="logo footer-logo" href="/index.html">YOUR ENERGY</a>
+
+                <ul class="social-list footer-socials">
+                    <li>
+                        <a href="https://www.facebook.com/goITclub/" target="_blank" rel="noopener noreferrer">f</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/goitclub/" target="_blank" rel="noopener noreferrer">◎</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/c/GoIT" target="_blank" rel="noopener noreferrer">▶</a>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="footer-title">
+                Transforming your <span>body</span> shape with us
+            </p>
+
+            <form class="subscribe-form" data-subscribe-form>
+                <label>
+                    Subscribe and learn about new exercises!
+                    <input type="email" name="email" placeholder="Email" required
+                        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
+                </label>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </footer>
+
+    <div class="modal-backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button class="modal-close" type="button" data-modal-close>×</button>
+            <div data-modal-content></div>
+        </div>
+    </div>
+
+    <button class="scroll-up" type="button" data-scroll-up>↑</button>
+
+</body>
+
+</html>
