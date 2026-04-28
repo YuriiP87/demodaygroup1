@@ -1,20 +1,33 @@
 .hero {
-    padding-bottom: 40px;
+    padding-bottom: clamp(40px, 6vw, 64px);
+    background-color: #f4f4f4;
 }
 
 .hero-top {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: clamp(24px, 4vw, 32px);
 }
 
 .hero-title {
-    max-width: 340px;
-    font-size: 42px;
-    line-height: 0.95;
+    max-width: clamp(335px, 83vw, 639px);
+    font-size: clamp(38px, 9.6vw, 74px);
+    line-height: 1.16;
     font-weight: 400;
     letter-spacing: -0.02em;
+    color: #242424;
+}
+
+.hero-title::before {
+    content: '';
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    margin-right: 8px;
+    background-image: url('../images/hero/sun.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: -6px;
 }
 
 .hero-title span {
@@ -22,75 +35,132 @@
 }
 
 .hero-text {
-    max-width: 340px;
-    margin-top: 20px;
-    font-size: 14px;
-    line-height: 1.28;
-    color: var(--gray);
+    max-width: clamp(335px, 68vw, 528px);
+    margin-top: clamp(20px, 3vw, 24px);
+    font-size: clamp(14px, 2.35vw, 18px);
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    color: #242424;
 }
 
 .hero-tags {
-    display: flex;
-    align-items: flex-end;
-    gap: 16px;
+    display: none;
 }
 
 .hero-small-img {
-    width: 120px;
-    height: 72px;
+    display: block;
+    width: 168px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 18px;
-}
-
-.tags-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tags-list li {
-    padding: 4px 10px;
-    border: 1px solid var(--dark);
-    border-radius: 30px;
-    font-size: 12px;
+    border-radius: 20px;
 }
 
 .hero-img {
+    display: block;
     width: 100%;
-    height: 280px;
+    height: clamp(460px, 72vw, 550px);
     object-fit: cover;
-    border-radius: 30px;
+    object-position: center;
+    border-radius: clamp(30px, 7.8vw, 60px);
 }
 
+.tags-list,
+.tags-list-bottom {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tags-list-bottom {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.tags-list-bottom li,
+.tags-list li {
+    padding: 4px 12px;
+    border: 1px solid #242424;
+    border-radius: 30px;
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.29;
+    color: #242424;
+    white-space: nowrap;
+}
+
+/* Tablet */
 @media screen and (min-width: 768px) {
     .hero-title {
-        max-width: 600px;
-        font-size: 74px;
+        line-height: 1;
+    }
+
+    .hero-title::before {
+        width: 59px;
+        height: 59px;
     }
 
     .hero-text {
-        max-width: 530px;
-        font-size: 18px;
+        line-height: 1.33;
     }
 
+    .tags-list-bottom {
+        justify-content: flex-end;
+    }
+
+    .tags-list-bottom li,
+    .tags-list li {
+        padding: 4px 16px;
+        line-height: 1.5;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
     .hero-top {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        margin-bottom: 32px;
     }
 
-    .hero-img {
-        height: 420px;
-        border-radius: 50px;
-    }
-}
-
-@media screen and (min-width: 1440px) {
     .hero-title {
-        font-size: 80px;
+        max-width: 639px;
+        font-size: 74px;
+        line-height: 1;
+    }
+
+    .hero-text {
+        max-width: 528px;
+        margin-top: 24px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+    .hero-tags {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+        padding-top: 12px;
+    }
+
+    .tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+        max-width: 197px;
+    }
+
+    .tags-list-bottom {
+        display: none;
     }
 
     .hero-img {
-        height: 500px;
+        height: 350px;
+        border-radius: 60px;
+        object-position: center 25%;
     }
 }
