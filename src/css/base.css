@@ -1,52 +1,52 @@
 :root {
-    --main-bg: #f4f4f4;
-    --dark: #242424;
-    --white: #ffffff;
-    --gray: rgba(36, 36, 36, 0.6);
-    --light-gray: rgba(36, 36, 36, 0.1);
-    --accent: #f6f6f6;
+  --main-bg: #f4f4f4;
+  --dark: #242424;
+  --white: #ffffff;
+  --gray: rgba(36, 36, 36, 0.6);
+  --light-gray: rgba(36, 36, 36, 0.1);
+  --accent: #f6f6f6;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--main-bg);
-    color: var(--dark);
+  font-family: Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--dark);
 }
 
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .is-hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .container {
-    max-width: 375px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .section-title {
-    font-size: 28px;
-    line-height: 1.1;
-    font-weight: 400;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        padding: 0 32px;
-    }
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
 
-    .section-title {
-        font-size: 44px;
-    }
+  .section-title {
+    font-size: 44px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .container {
-        max-width: 1440px;
-        padding: 0 48px;
-    }
+  .container {
+    max-width: 1440px;
+    padding: 0 48px;
+  }
 }

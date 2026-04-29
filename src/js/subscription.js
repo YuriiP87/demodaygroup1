@@ -11,7 +11,7 @@ form?.addEventListener('submit', async event => {
     await subscribeUser(email);
     alert('Subscription created successfully');
     form.reset();
-  } catch (error) {
+  } catch {
     alert('Subscription failed. Try another email.');
   }
 });
