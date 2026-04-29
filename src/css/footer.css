@@ -12,6 +12,7 @@
   display: flex;
   align-items: flex-start;
   gap: 40px;
+
 }
 
 .footer__left {
@@ -47,12 +48,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid rgba(244, 244, 244, 0.1);
+  border: 1px solid rgba(244, 244, 244, 0.10);
   text-decoration: none;
   color: #f4f4f4;
-  transition:
-    background 0.25s ease,
-    color 0.25s ease;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .footer__social-link svg {
@@ -68,6 +67,7 @@
   outline: none;
 }
 
+
 .footer__center {
   flex: 1;
   display: flex;
@@ -78,7 +78,7 @@
 
 .footer__slogan {
   margin: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 56px;
   font-style: normal;
   font-weight: 400;
@@ -86,8 +86,9 @@
   letter-spacing: -1.12px;
   color: #f4f4f4;
 }
+
 .footer__slogan em {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 56px;
   font-style: italic;
   font-weight: 400;
@@ -174,9 +175,7 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.1s ease;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .footer__btn:hover {
@@ -281,7 +280,7 @@
 
 /* MOBILE */
 @media (max-width: 767px) {
-  .footer__container {
+  <<<<<<< HEAD .footer__container {
     padding: 40px 20px 32px;
     display: flex;
     flex-direction: column;
@@ -353,4 +352,79 @@
   .footer__year {
     flex-shrink: 0;
   }
+
+  =======.footer__container {
+    padding: 40px 20px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer__left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .footer__logo-svg {
+    width: 140px;
+    height: auto;
+  }
+
+  .footer__socials {
+    gap: 12px;
+  }
+
+  .footer__social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid rgba(244, 244, 244, 0.20);
+  }
+
+  .footer__social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer__center {
+    padding: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .footer__slogan {
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.72px;
+  }
+
+  .footer__slogan br {
+    display: block;
+  }
+
+  .footer__right {
+    width: 100%;
+  }
+
+  .footer__bottom {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .footer__copy {
+    width: 100%;
+  }
+
+  .footer__legal {
+    flex: 1;
+  }
+
+  .footer__year {
+    flex-shrink: 0;
+  }
+
+  >>>>>>>8c72329 (feat: add footer with subscription form)
 }
