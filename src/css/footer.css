@@ -280,7 +280,7 @@
 
 /* MOBILE */
 @media (max-width: 767px) {
-  <<<<<<< HEAD .footer__container {
+  .footer__container {
     padding: 40px 20px 32px;
     display: flex;
     flex-direction: column;
@@ -425,6 +425,4 @@
   .footer__year {
     flex-shrink: 0;
   }
-
-  >>>>>>>8c72329 (feat: add footer with subscription form)
 }
