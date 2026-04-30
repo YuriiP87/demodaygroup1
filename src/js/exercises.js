@@ -1,9 +1,12 @@
+import axios from 'axios';
 import { getExercises } from './api.js';
 import { state } from './filters.js';
 import { openExerciseModal } from './modal-exercise.js';
 
 const exercisesList = document.querySelector('[data-exercises-list]');
 const searchForm = document.querySelector('[data-search-form]');
+
+let activeController = null;
 
 function getExerciseParams() {
   const params = {
@@ -71,8 +74,13 @@ export async function loadExercises() {
 
   exercisesList.innerHTML = '<li>Loading...</li>';
 
+  activeController?.abort();
+  activeController = new AbortController();
+
   try {
-    const data = await getExercises(getExerciseParams());
+    const data = await getExercises(getExerciseParams(), {
+      signal: activeController.signal,
+    });
     const results = data.results || [];
 
     if (!results.length) {
@@ -88,6 +96,7 @@ export async function loadExercises() {
       });
     });
   } catch (error) {
+    if (axios.isCancel(error)) return;
     exercisesList.innerHTML = '<li>Failed to load exercises.</li>';
   }
 }

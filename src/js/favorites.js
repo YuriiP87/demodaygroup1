@@ -50,12 +50,16 @@ function renderFavorites() {
   list.innerHTML = favorites.map(markup).join('');
 
   list.querySelectorAll('[data-start]').forEach(button => {
-    button.addEventListener('click', () => openExerciseModal(button.dataset.start));
+    button.addEventListener('click', () =>
+      openExerciseModal(button.dataset.start)
+    );
   });
 
   list.querySelectorAll('[data-remove]').forEach(button => {
     button.addEventListener('click', () => {
-      const updated = getFavorites().filter(item => item._id !== button.dataset.remove);
+      const updated = getFavorites().filter(
+        item => item._id !== button.dataset.remove
+      );
       saveFavorites(updated);
       renderFavorites();
     });
