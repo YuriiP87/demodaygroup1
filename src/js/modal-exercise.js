@@ -30,9 +30,10 @@ function toggleFavorite(exercise) {
 }
 
 function renderModal(exercise) {
-  const buttonText = isFavorite(exercise._id)
+  const favouritesButtonText = isFavorite(exercise._id)
     ? 'Remove from favorites'
     : 'Add to favorites';
+  const AddToFavorites = "Add to favorites"
 
   modalContent.innerHTML = `
     <div class="modal-content-grid">
@@ -53,7 +54,8 @@ function renderModal(exercise) {
         <p>${exercise.description}</p>
 
         <div class="modal-actions">
-          <button type="button" data-fav-btn>${buttonText} ♡</button>
+          <button type="button" data-fav-btn>${favouritesButtonText} ♡</button>
+          <button type="button" class="btn-add-favorite">${AddToFavorites}</button>
         </div>
       </div>
     </div>

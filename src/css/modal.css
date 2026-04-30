@@ -98,3 +98,12 @@
     grid-template-columns: 270px 1fr;
   }
 }
+
+.btn-add-favorite {
+  border: 1px solid #f4f4f4;
+  border-radius: 30px;
+  padding: 12px 24px;
+  width: 141px;
+  height: 48px;
+  background-color: transparent;
+}
