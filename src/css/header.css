@@ -1,112 +1,112 @@
 .header {
-    padding: 24px 0 40px;
+  padding: 24px 0 40px;
 }
 
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .nav {
-    display: none;
+  display: none;
 }
 
 .nav-link {
-    padding: 8px 16px;
-    border-radius: 30px;
-    color: var(--white);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: var(--white);
 }
 
 .nav-link.active {
-    background-color: var(--white);
-    color: var(--dark);
+  background-color: var(--white);
+  color: var(--dark);
 }
 
 .social-list {
-    display: none;
+  display: none;
 }
 
 .burger-btn {
-    background: transparent;
-    font-size: 28px;
+  background: transparent;
+  font-size: 28px;
 }
 
 .mobile-menu {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark);
-    color: var(--white);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 .mobile-menu.is-open {
-    display: flex;
+  display: flex;
 }
 
 .menu-close {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    background: transparent;
-    color: var(--white);
-    font-size: 32px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  color: var(--white);
+  font-size: 32px;
 }
 
 .mobile-logo {
-    position: absolute;
-    top: 24px;
-    left: 24px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
 }
 
 .mobile-nav {
-    display: flex;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 30px;
-    background-color: var(--dark);
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 30px;
+  background-color: var(--dark);
 }
 
 @media screen and (min-width: 768px) {
-    .header {
-        padding: 32px 0 64px;
-    }
+  .header {
+    padding: 32px 0 64px;
+  }
 
-    .nav {
-        display: flex;
-        gap: 4px;
-        padding: 8px;
-        border-radius: 30px;
-        background-color: var(--dark);
-    }
+  .nav {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 30px;
+    background-color: var(--dark);
+  }
 
-    .social-list {
-        display: flex;
-        gap: 12px;
-    }
+  .social-list {
+    display: flex;
+    gap: 12px;
+  }
 
-    .social-list a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        border: 1px solid var(--light-gray);
-        border-radius: 10px;
-        font-weight: 700;
-    }
+  .social-list a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    font-weight: 700;
+  }
 
-    .burger-btn {
-        display: none;
-    }
+  .burger-btn {
+    display: none;
+  }
 }

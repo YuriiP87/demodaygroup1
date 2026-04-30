@@ -74,7 +74,7 @@ export async function openExerciseModal(id) {
   try {
     const exercise = await getExerciseById(id);
     renderModal(exercise);
-  } catch (error) {
+  } catch {
     modalContent.innerHTML = '<p>Failed to load exercise.</p>';
   }
 }
