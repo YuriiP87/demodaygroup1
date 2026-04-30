@@ -14,11 +14,17 @@ import './css/loader.css';
 
 import './js/mobile-menu.js';
 import './js/quote.js';
-import './js/filters.js';
-import './js/categories.js';
 import './js/exercises.js';
 import './js/modal-exercise.js';
 import './js/favorites.js';
 import './js/subscription.js';
 import './js/pagination.js';
 import './js/scroll-up.js';
+
+import { initFilters } from './js/filters.js';
+import { loadCategories } from './js/categories.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFilters(loadCategories);
+  loadCategories();
+});

@@ -71,5 +71,3 @@ export async function loadCategories() {
     categoriesList.innerHTML = '<li>Failed to load categories.</li>';
   }
 }
-
-loadCategories();
