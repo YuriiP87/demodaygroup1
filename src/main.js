@@ -1,3 +1,4 @@
+import 'izitoast/dist/css/iziToast.min.css';
 import './css/reset.css';
 import './css/base.css';
 import './css/header.css';
