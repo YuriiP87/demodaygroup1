@@ -73,4 +73,4 @@ import{a as S,i as Q}from"./vendor-BgQWO4R4.js";(function(){const e=document.cre
       </button>
     </li>
   `}function J(){if(!v)return;const t=F();if(!t.length){v.innerHTML="",d==null||d.classList.remove("is-hidden");return}d==null||d.classList.add("is-hidden"),v.innerHTML=t.map(nt).join(""),v.querySelectorAll("[data-start]").forEach(e=>{e.addEventListener("click",()=>C(e.dataset.start))}),v.querySelectorAll("[data-remove]").forEach(e=>{e.addEventListener("click",()=>{const r=F().filter(s=>s._id!==e.dataset.remove);ot(r),J()})})}J();const L=document.querySelector("[data-subscribe-form]");L==null||L.addEventListener("submit",async t=>{t.preventDefault();const e=t.currentTarget.elements.email.value.trim();try{await V(e),alert("Subscription created successfully"),L.reset()}catch{alert("Subscription failed. Try another email.")}});const k=document.querySelector("[data-scroll-up]");k&&(window.addEventListener("scroll",()=>{k.classList.toggle("is-visible",window.scrollY>400)}),k.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})}));
-//# sourceMappingURL=main-Dw7XiwZz.js.map
+//# sourceMappingURL=main-DImSLy9k.js.map
