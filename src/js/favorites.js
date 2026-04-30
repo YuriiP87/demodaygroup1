@@ -16,8 +16,17 @@ function markup(exercise) {
   return `
     <li class="exercise-card">
       <div class="exercise-card-top">
-        <span class="badge">Workout</span>
-        <button type="button" data-start="${exercise._id}">Start →</button>
+        <div class="exercise-card-actions">
+          <span class="badge">Workout</span>
+
+          <button class="remove-btn" type="button" data-remove="${exercise._id}" aria-label="Remove from favorites">
+            🗑
+          </button>
+        </div>
+
+        <button class="start-btn" type="button" data-start="${exercise._id}">
+          Start →
+        </button>
       </div>
 
       <h3>🏃 ${exercise.name}</h3>
@@ -27,10 +36,6 @@ function markup(exercise) {
         &nbsp; Body part: <b>${exercise.bodyPart}</b>
         &nbsp; Target: <b>${exercise.target}</b>
       </p>
-
-      <button class="remove-btn" type="button" data-remove="${exercise._id}">
-        Remove from favorites 🗑
-      </button>
     </li>
   `;
 }
