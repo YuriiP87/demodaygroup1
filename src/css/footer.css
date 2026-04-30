@@ -12,7 +12,6 @@
   display: flex;
   align-items: flex-start;
   gap: 40px;
-
 }
 
 .footer__left {
@@ -48,10 +47,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid rgba(244, 244, 244, 0.10);
+  border: 1px solid rgba(244, 244, 244, 0.1);
   text-decoration: none;
   color: #f4f4f4;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .footer__social-link svg {
@@ -67,7 +68,6 @@
   outline: none;
 }
 
-
 .footer__center {
   flex: 1;
   display: flex;
@@ -78,7 +78,7 @@
 
 .footer__slogan {
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 56px;
   font-style: normal;
   font-weight: 400;
@@ -88,7 +88,7 @@
 }
 
 .footer__slogan em {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 56px;
   font-style: italic;
   font-weight: 400;
@@ -175,7 +175,9 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
 }
 
 .footer__btn:hover {
@@ -380,7 +382,7 @@
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    border: 1px solid rgba(244, 244, 244, 0.20);
+    border: 1px solid rgba(244, 244, 244, 0.2);
   }
 
   .footer__social-link svg {
