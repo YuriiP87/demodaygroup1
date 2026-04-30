@@ -1,14 +1,11 @@
-
 const EMAIL_PATTERN = /^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
 const API_URL = 'https://your-energy.b.goit.study/api/subscription';
-
 
 const form = document.getElementById('subscriptionForm');
 const input = document.getElementById('subscriptionEmail');
 const error = document.getElementById('emailError');
 const btn = form.querySelector('.footer__btn');
-
 
 function isValid(value) {
   return EMAIL_PATTERN.test(value.trim());
@@ -30,7 +27,6 @@ function clearState() {
   error.classList.remove('visible');
 }
 
-
 input.addEventListener('input', () => {
   if (input.value.trim() === '') {
     clearState();
@@ -38,7 +34,6 @@ input.addEventListener('input', () => {
   }
   isValid(input.value) ? showSuccess() : showError();
 });
-
 
 function showToast(message, type = 'success') {
   document.querySelector('.footer-toast')?.remove();
@@ -71,7 +66,6 @@ function showToast(message, type = 'success') {
   }, 3000);
 }
 
-
 form.addEventListener('submit', async event => {
   event.preventDefault();
 
@@ -87,27 +81,22 @@ form.addEventListener('submit', async event => {
   btn.textContent = 'Sending...';
 
   try {
-  
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
     });
 
-  
     if (!response.ok) {
       const data = await response.json().catch(() => ({}));
       throw new Error(data.message || `Error ${response.status}`);
     }
 
-
     form.reset();
     clearState();
     showToast('Successfully subscribed! 🎉', 'success');
-
   } catch (err) {
     showToast(err.message || 'Something went wrong. Try again.', 'error');
-
   } finally {
     btn.disabled = false;
     btn.textContent = 'Send';
