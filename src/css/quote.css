@@ -42,7 +42,9 @@
   font-weight: 500;
   line-height: 20px;
   color: #f4f4f4;
-  font-feature-settings: 'liga' off, 'clig' off;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
 }
 
 .quote-body {
@@ -110,8 +112,10 @@
   line-height: 20px;
   margin-bottom: 2px;
   color: #242424;
-  font-family: "DM Sans";
-  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: 'DM Sans';
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
 }
 
 .sport-card-top p {
