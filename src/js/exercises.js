@@ -57,16 +57,24 @@ function exerciseMarkup(exercise) {
       <path d="M13.6002 4.12628C14.7397 4.12628 15.6634 3.20258 15.6634 2.06314C15.6634 0.923699 14.7397 0 13.6002 0C12.4608 0 11.5371 0.923699 11.5371 2.06314C11.5371 3.20258 12.4608 4.12628 13.6002 4.12628Z" fill="white" />
       </svg>
       </span>
-      ${capitalize(exercise.name)}
+      <span class="exercise-title">${capitalize(exercise.name)}</span>
       </h3>
 
       <p class="exercise-info">
-        <span>Burned calories: <b>${exercise.burnedCalories} / 3 min</b></span>
-        <span>Body part: <b>${capitalize(exercise.bodyPart)}</b></span>
-        <span>Target: <b>${capitalize(exercise.target)}</b></span>
-      </p>
-    </li>
-  `;
+         <span class="info-item">
+         <span class="info-label">Burned calories:</span>
+         <span class="info-value">${exercise.burnedCalories} / 3 min</span>
+         </span>
+        <span class="info-item">
+        <span class="info-label">Body part:</span>
+        <span class="info-value">${capitalize(exercise.bodyPart)}</span>
+        </span>
+        <span class="info-item">
+        <span class="info-label">Target:</span>
+        <span class="info-value">${capitalize(exercise.target)}</span>
+        </span>
+        </p>
+        `;
 }
 
 export async function loadExercises() {
