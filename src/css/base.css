@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'DM Sans', Arial, sans-serif;
   background-color: var(--main-bg);
   color: var(--dark);
 }
