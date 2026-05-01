@@ -5,7 +5,6 @@ const API_URL = 'https://your-energy.b.goit.study/api/subscription';
 const form = document.getElementById('subscriptionForm');
 
 if (form) {
-
   const input = document.getElementById('subscriptionEmail');
   const error = document.getElementById('emailError');
   const btn = form.querySelector('.footer__btn');
