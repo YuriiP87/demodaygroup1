@@ -21,9 +21,14 @@
 }
 
 .quote-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  width: 34px;
+  width: 32px;
   height: 32px;
+  border-radius: 50%;
+  background-color: rgba(244, 244, 244, 0.15);
 }
 
 .quote-text {
@@ -87,7 +92,14 @@
 }
 
 .sport-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--dark);
 }
 
 .sport-card-top h3 {
