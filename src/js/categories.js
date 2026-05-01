@@ -7,6 +7,7 @@ const categoriesList = document.querySelector('[data-categories-list]');
 const exercisesList = document.querySelector('[data-exercises-list]');
 const searchForm = document.querySelector('[data-search-form]');
 const currentCategoryEl = document.querySelector('[data-current-category]');
+const paginationEl = document.querySelector('[data-pagination]');
 
 let activeController = null;
 
@@ -20,6 +21,26 @@ function categoryMarkup(category) {
       </div>
     </li>
   `;
+}
+
+function renderPagination(totalPages) {
+  if (!paginationEl) return;
+
+  const markup = Array.from({ length: totalPages }, (_, index) => {
+    const page = index + 1;
+
+    return `
+      <button
+        class="pagination-btn ${page === state.page ? 'active' : ''}"
+        type="button"
+        data-page="${page}"
+      >
+        ${page}
+      </button>
+    `;
+  }).join('');
+
+  paginationEl.innerHTML = markup;
 }
 
 export async function loadCategories() {
@@ -40,6 +61,7 @@ export async function loadCategories() {
     const data = await getFilters(state.filter, state.page, state.limit, {
       signal: activeController.signal,
     });
+
     const results = data.results || [];
 
     if (!results.length) {
@@ -48,6 +70,8 @@ export async function loadCategories() {
     }
 
     categoriesList.innerHTML = results.map(categoryMarkup).join('');
+
+    renderPagination(data.totalPages || 1);
 
     categoriesList.querySelectorAll('[data-category]').forEach(card => {
       card.addEventListener('click', () => {
@@ -71,3 +95,13 @@ export async function loadCategories() {
     categoriesList.innerHTML = '<li>Failed to load categories.</li>';
   }
 }
+
+paginationEl?.addEventListener('click', event => {
+  if (!event.target.classList.contains('pagination-btn')) return;
+
+  if (state.mode === 'exercises') return;
+
+  state.page = Number(event.target.dataset.page);
+
+  loadCategories();
+});
