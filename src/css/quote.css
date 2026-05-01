@@ -1,14 +1,14 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
 }
 
 /* ── Quote card ─────────────────────────────── */
 
 .quote-card {
   position: relative;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   background-color: var(--dark);
 }
@@ -61,8 +61,8 @@
 
 .quote-commas {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 20px;
+  right: 20px;
   width: 24px;
   height: 24px;
 }
@@ -79,7 +79,7 @@
 /* ── Sport card ─────────────────────────────── */
 
 .sport-card {
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
   background-color: var(--white);
 }
@@ -122,4 +122,69 @@
   font-size: 14px;
   line-height: 1.29;
   color: var(--dark);
+}
+
+/* ── Tablet (768px+) ────────────────────────── */
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    display: grid;
+    grid-template-columns: minmax(auto, 400px) 1fr;
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+
+  .quote-card {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 40px;
+    max-width: 400px;
+  }
+
+  .quote-commas {
+    top: 40px;
+    right: 40px;
+  }
+
+  .sidebar-img {
+    grid-column: 2;
+    grid-row: 1;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .sport-card {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 40px;
+    max-width: 400px;
+  }
+}
+
+/* ── Desktop (1440px+) ──────────────────────── */
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .quote-card {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: none;
+  }
+
+  .sidebar-img {
+    grid-column: auto;
+    grid-row: auto;
+    height: 242px;
+  }
+
+  .sport-card {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: none;
+  }
 }
