@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { getFilters } from './api.js';
 import { state } from './filters.js';
 import { loadExercises } from './exercises.js';
@@ -6,6 +7,8 @@ const categoriesList = document.querySelector('[data-categories-list]');
 const exercisesList = document.querySelector('[data-exercises-list]');
 const searchForm = document.querySelector('[data-search-form]');
 const currentCategoryEl = document.querySelector('[data-current-category]');
+
+let activeController = null;
 
 function categoryMarkup(category) {
   return `
@@ -30,8 +33,13 @@ export async function loadCategories() {
 
   categoriesList.innerHTML = '<li>Loading...</li>';
 
+  activeController?.abort();
+  activeController = new AbortController();
+
   try {
-    const data = await getFilters(state.filter, state.page, state.limit);
+    const data = await getFilters(state.filter, state.page, state.limit, {
+      signal: activeController.signal,
+    });
     const results = data.results || [];
 
     if (!results.length) {
@@ -59,8 +67,7 @@ export async function loadCategories() {
       });
     });
   } catch (error) {
+    if (axios.isCancel(error)) return;
     categoriesList.innerHTML = '<li>Failed to load categories.</li>';
   }
 }
-
-loadCategories();
