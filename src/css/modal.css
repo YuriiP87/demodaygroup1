@@ -9,6 +9,10 @@
   background-color: rgba(36, 36, 36, 0.6);
 }
 
+.modal-backdrop[data-rating-modal] {
+  z-index: 210;
+}
+
 .modal {
   position: relative;
   width: 100%;
@@ -48,9 +52,9 @@
 }
 
 .modal-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: flex;
+  align-items: wrap;
+  gap: 16px;
   margin: 24px 0;
   padding: 16px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -66,16 +70,24 @@
 .modal-info b {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .modal-info span {
+  font-weight: 500;
   font-size: 14px;
+  line-height: 1.28571;
+  color: #f4f4f4;
 }
 
 .modal p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
   font-size: 14px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.28;
+  color: rgba(244, 244, 244, 0.6);
 }
 
 .modal-actions {
@@ -99,6 +111,26 @@
   }
 }
 
+.btn-fav {
+  display: flex;
+  gap: 8px;
+  border-radius: 30px;
+  padding: 12px 24px;
+  width: 194px;
+  height: 48px;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 12px 24px;
+  width: 194px;
+  height: 48px;
+  background: #f4f4f4;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #242424;
+}
+
 .btn-rating {
   border: 1px solid #f4f4f4;
   border-radius: 30px;
@@ -106,92 +138,135 @@
   width: 141px;
   height: 48px;
   background-color: transparent;
-  font-family: "DM Sans", sans-serif;
-font-weight: 400;
-font-size: 16px;
-line-height: 1.5;
-color: #f4f4f4;
-
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f4f4f4;
 }
 
 .rating-modal {
-  max-width: 500px;
+  width: 430px;
+  min-height: 412px;
+  z-index: 200;
+  background-color: #242424;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-sizing: border-box;
 }
 
 .rating-modal-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  justify-content: start;
+  margin-bottom: 18px;
 }
 
 .rating-modal-title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(244, 244, 244, 0.4);
 }
 
 .rating-value {
-  font-size: 18px;
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
   color: #f4f4f4;
 }
 
 .rating-stars {
   display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: start;
+  gap: 2px;
+  margin-bottom: 24px;
 }
 
 .rating-star {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background-color: transparent;
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(244, 244, 244, 0.2);
+  transition: color 0.2s ease;
 }
 
-.rating-star.active {
-  background-color: #f4f4f4;
-  color: #202020;
-  border-color: #f4f4f4;
+.rating-star svg {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.rating-star.is-active-star {
+  color: #eea10c;
 }
 
 .rating-field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 18px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #f4f4f4;
 }
 
 .rating-field input,
 .rating-field textarea {
   width: 100%;
-  padding: 14px 16px;
+  padding: 14px 18px;
+  border-radius: 30px;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  width: 350px;
+  border: 1px solid #f4f4f4;
+  width: 350px;
+  height: 48px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(244, 244, 244, 0.6);
+}
+
+.rating-field textarea {
+  min-height: 106px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.04);
-  color: #f4f4f4;
-  font-size: 14px;
+  resize: vertical;
+
+  border: 1px solid #f4f4f4;
+  border-radius: 15px;
 }
 
 .rating-field input::placeholder,
 .rating-field textarea::placeholder {
-  color: rgba(244, 244, 244, 0.55);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(244, 244, 244, 0.6);
 }
 
 .rating-submit {
   width: 100%;
-  padding: 14px 0;
-  border-radius: 28px;
   border: none;
   background-color: #f4f4f4;
-  color: #202020;
   font-size: 16px;
-  font-weight: 600;
+
   cursor: pointer;
+
+  font-weight: 400;
+
+  line-height: 1.5;
+  color: #242424;
+
+  border-radius: 30px;
+  padding: 12px 156px;
+  width: 350px;
+  height: 48px;
+
+  background: #f4f4f4;
 }
