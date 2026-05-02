@@ -2,6 +2,7 @@ import axios from 'axios';
 import { getFilters } from './api.js';
 import { state } from './filters.js';
 import { loadExercises } from './exercises.js';
+import { capitalize } from './utils.js';
 
 const categoriesList = document.querySelector('[data-categories-list]');
 const exercisesList = document.querySelector('[data-exercises-list]');
@@ -84,7 +85,7 @@ export async function loadCategories() {
         searchForm?.classList.remove('is-hidden');
 
         if (currentCategoryEl) {
-          currentCategoryEl.textContent = `/ ${state.category}`;
+          currentCategoryEl.textContent = capitalize(state.category);
         }
 
         loadExercises();
