@@ -156,7 +156,7 @@ function toggleFavorite(exercise) {
 
 function renderModal(exercise) {
   const favouritesButtonText = isFavorite(exercise._id)
-    ? 'Remove from favorites'
+    ? 'Unfavorite'
     : 'Add to favorites';
   const GiveARating = "Give a rating"
 
