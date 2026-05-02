@@ -3,6 +3,14 @@
   gap: 32px;
 }
 
+.sidebar {
+  order: 2;
+}
+
+.content-area {
+  order: 1;
+}
+
 .categories-list {
   display: grid;
   gap: 20px;
@@ -65,6 +73,14 @@
   .main-layout {
     grid-template-columns: 444px 1fr;
     align-items: start;
+  }
+
+  .sidebar {
+    order: 0;
+  }
+
+  .content-area {
+    order: 0;
   }
 
   .categories-list {

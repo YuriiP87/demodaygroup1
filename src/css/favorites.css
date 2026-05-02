@@ -377,3 +377,99 @@
     margin-top: 132px;
   }
 }
+
+/* ── Favorites sidebar overrides ────────────────── */
+
+.favorites-section .sport-card-top {
+  margin-bottom: 0;
+  flex-direction: column;
+}
+
+.favorites-section .sport-card-icon {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+}
+
+.favorites-section .sport-card-icon path {
+  fill: var(--dark);
+}
+
+/* Mobile: sidebar before content-area */
+
+.favorites-section .sidebar {
+  order: 0;
+}
+
+.favorites-section .content-area {
+  order: 1;
+}
+
+/* Mobile: quote-card → sport-card → sidebar-img */
+
+.favorites-section .sport-card {
+  order: 1;
+}
+
+.favorites-section .sidebar-img {
+  order: 2;
+  height: 119px;
+}
+
+/* ── Tablet (768px+) ────────────────────────────── */
+
+@media screen and (min-width: 768px) {
+  .favorites-section .sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .favorites-section .quote-card {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    max-width: none;
+    padding: 40px;
+  }
+
+  .favorites-section .quote-commas {
+    top: 40px;
+    right: 40px;
+  }
+
+  .favorites-section .sport-card {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: none;
+    padding: 40px;
+    order: unset;
+  }
+
+  .favorites-section .sidebar-img {
+    grid-column: 2;
+    grid-row: 2;
+    height: 100%;
+    order: unset;
+  }
+}
+
+/* ── Desktop (1440px+) ──────────────────────────── */
+
+@media screen and (min-width: 1440px) {
+  .favorites-section .sidebar {
+    width: 494px;
+  }
+
+  .favorites-section .quote-card {
+    max-width: none;
+  }
+
+  .favorites-section .sport-card {
+    max-width: none;
+  }
+
+  .favorites-section .sidebar-img {
+    height: 100%;
+  }
+}
