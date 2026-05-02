@@ -137,21 +137,27 @@
         <div class="container">
           <div class="section-head">
             <h2 class="section-title">
-              Exercises <span data-current-category></span>
+              Exercises<span data-current-category></span>
             </h2>
 
-            <div class="filters-wrap">
-              <form class="search-form is-hidden" data-search-form>
-                <input
-                  class="search-input"
-                  type="text"
-                  name="search"
-                  placeholder="Search"
+            <form class="search-form is-hidden" data-search-form>
+              <input
+                class="search-input"
+                type="text"
+                name="search"
+                placeholder="Search"
+              />
+              <button class="search-btn" type="submit" aria-label="Search">
+                <img
+                  src="./images/icons/search.svg"
+                  alt=""
+                  width="18"
+                  height="18"
                 />
-                <button class="search-btn" type="submit">⌕</button>
-              </form>
+              </button>
+            </form>
 
-              <ul class="filter-list">
+            <ul class="filter-list">
                 <li>
                   <button
                     class="filter-btn active"
@@ -179,8 +185,7 @@
                     Equipment
                   </button>
                 </li>
-              </ul>
-            </div>
+            </ul>
           </div>
 
           <div class="main-layout">
