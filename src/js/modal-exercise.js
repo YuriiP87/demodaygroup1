@@ -149,20 +149,44 @@ function renderModal(exercise) {
     : 'Add to favorites';
   const GiveARating = "Give a rating"
 
+const ratingValue = Math.round(exercise.rating || 0); 
+  let starsHTML = '';
+  
+  for (let i = 1; i <= 5; i++) {
+    const starColor = i <= ratingValue ? '#eea10c' : 'rgba(244, 244, 244, 0.2)';
+    starsHTML += `<svg width="18" height="18" style="color: ${starColor}; margin-right: 2px;" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
+    </svg>`;
+  }
+
   modalContent.innerHTML = `
     <div class="modal-content-grid">
       <img class="modal-img" src="${exercise.gifUrl}" alt="${exercise.name}" />
 
       <div>
         <h2>${exercise.name}</h2>
-        <p>${exercise.rating} ★★★★★</p>
+      
+        <p style="display: flex; align-items: center; gap: 4px;">
+      <span class="rating-value">${exercise.rating}</span> 
+      <span class="rating-stars-display" style="display: flex; align-items: center;">${starsHTML}</span>
+    </p>
 
         <ul class="modal-info">
-          <li><b>Target</b><span>${exercise.target}</span></li>
-          <li><b>Body Part</b><span>${exercise.bodyPart}</span></li>
-          <li><b>Equipment</b><span>${exercise.equipment}</span></li>
-          <li><b>Popular</b><span>${exercise.popularity}</span></li>
-          <li><b>Burned Calories</b><span>${exercise.burnedCalories} / 3 min</span></li>
+          <li class="modal-info-item">
+          <span class="modal-info-label">Target</span>
+          <span class="modal-info-value">${exercise.target}</span></li>
+          <li class="modal-info-item">
+          <span class="modal-info-label">Body Part</span>
+          <span class="modal-info-value">${exercise.bodyPart}</span></li>
+          <li class="modal-info-item">
+          <span class="modal-info-label">Equipment</span>
+          <span class="modal-info-value">${exercise.equipment}</span></li>
+          <li class="modal-info-item">
+          <span class="modal-info-label">Popular</span>
+          <span class="modal-info-value">${exercise.popularity}</span></li>
+          <li class="modal-info-item">
+          <span class="modal-info-label">Burned Calories</span>
+          <span class="modal-info-value">${exercise.burnedCalories} / 3 min</span></li>
         </ul>
 
         <p>${exercise.description}</p>
