@@ -17,7 +17,9 @@ const modal = document.querySelector('[data-modal]');
 const modalContent = document.querySelector('[data-modal-content]');
 const closeBtn = document.querySelector('[data-modal-close]');
 const ratingModal = document.querySelector('[data-rating-modal]');
-const ratingModalContent = document.querySelector('[data-rating-modal-content]');
+const ratingModalContent = document.querySelector(
+  '[data-rating-modal-content]'
+);
 const ratingModalCloseBtn = document.querySelector('[data-rating-modal-close]');
 
 let selectedRating = 0;
@@ -25,7 +27,8 @@ let selectedRating = 0;
 function updateRatingStars(rating) {
   selectedRating = rating;
   const ratingValue = ratingModalContent?.querySelector('.rating-value');
-  const starButtons = ratingModalContent?.querySelectorAll('[data-rating-star]');
+  const starButtons =
+    ratingModalContent?.querySelectorAll('[data-rating-star]');
 
   if (ratingValue) {
     ratingValue.textContent = rating.toFixed(1);
@@ -46,9 +49,13 @@ function updateRatingStars(rating) {
 }
 
 function bindRatingModalEvents(exerciseId) {
-  ratingModalContent?.querySelectorAll('[data-rating-star]')?.forEach(button => {
-    button.addEventListener('click', () => updateRatingStars(Number(button.dataset.ratingStar)));
-  });
+  ratingModalContent
+    ?.querySelectorAll('[data-rating-star]')
+    ?.forEach(button => {
+      button.addEventListener('click', () =>
+        updateRatingStars(Number(button.dataset.ratingStar))
+      );
+    });
 
   const form = ratingModalContent?.querySelector('.rating-form');
   form?.addEventListener('submit', async event => {
@@ -66,8 +73,7 @@ function bindRatingModalEvents(exerciseId) {
     try {
       await addRating(exerciseId, { rating: selectedRating, email, comment });
     } catch (error) {
-  console.error('Failed to add rating:', error);
-      
+      console.error('Failed to add rating:', error);
     }
 
     closeRatingModal();
@@ -76,10 +82,11 @@ function bindRatingModalEvents(exerciseId) {
     }
   });
 
-  
-  const textarea = ratingModalContent?.querySelector('textarea[name="comment"]');
+  const textarea = ratingModalContent?.querySelector(
+    'textarea[name="comment"]'
+  );
   if (textarea) {
-    textarea.addEventListener('input', function() {
+    textarea.addEventListener('input', function () {
       this.style.height = 'auto';
       this.style.height = this.scrollHeight + 'px';
     });
@@ -90,9 +97,9 @@ function openRatingModal(exerciseId) {
   if (!ratingModal || !ratingModalContent) return;
 
   selectedRating = 0;
-  
+
   ratingModal.classList.remove('is-hidden');
-  
+
   if (modal) {
     modal.classList.add('is-hidden');
   }
@@ -137,7 +144,7 @@ function openRatingModal(exerciseId) {
 
 function closeRatingModal() {
   ratingModal.classList.add('is-hidden');
-  
+
   if (modal) {
     modal.classList.remove('is-hidden');
   }
@@ -170,21 +177,22 @@ function toggleFavorite(exercise) {
 function renderModal(exercise) {
   const isFav = isFavorite(exercise._id);
 
-const favouritesButtonText = isFav
-  ? "Remove from favorites"
-  : "Add to favorites";
+  const favouritesButtonText = isFav
+    ? 'Remove from favorites'
+    : 'Add to favorites';
 
-const icon = isFav ? cartIcon : heartIcon;
+  const icon = isFav ? cartIcon : heartIcon;
 
-const GiveARating = "Give a rating";
+  const GiveARating = 'Give a rating';
 
-const exactRating = Number(exercise.rating || 0).toFixed(1);
-  const ratingValueRound = Math.round(exercise.rating || 0); 
+  const exactRating = Number(exercise.rating || 0).toFixed(1);
+  const ratingValueRound = Math.round(exercise.rating || 0);
   let starsHTML = '';
-  
+
   for (let i = 1; i <= 5; i++) {
-    const starColor = i <= ratingValueRound ? '#eea10c' : 'rgba(244, 244, 244, 0.2)';
-    
+    const starColor =
+      i <= ratingValueRound ? '#eea10c' : 'rgba(244, 244, 244, 0.2)';
+
     starsHTML += `<svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="${starColor}"/>
     </svg>`;
@@ -259,7 +267,7 @@ export async function openExerciseModal(id) {
 
 function closeModal() {
   if (!modal) return;
-  
+
   modal.classList.add('is-hidden');
   document.body.classList.remove('no-scroll');
 }
@@ -288,4 +296,3 @@ document.addEventListener('keydown', event => {
     }
   }
 });
-

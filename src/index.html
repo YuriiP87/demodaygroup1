@@ -1,189 +1,313 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <load src="./partials/head.html" />
+    <title>Your Energy</title>
+  </head>
 
-<head>
-  <load src="./partials/head.html" />
-  <title>Your Energy</title>
-</head>
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <a class="logo" href="./index.html">YOUR ENERGY</a>
 
-<body>
-  <header class="header">
-    <div class="container header-container">
-      <a class="logo" href="./index.html">YOUR ENERGY</a>
+        <nav class="nav">
+          <a class="nav-link active" href="./index.html">Home</a>
+          <a class="nav-link" href="./favorites.html">Favorites</a>
+        </nav>
 
-      <nav class="nav">
-        <a class="nav-link active" href="./index.html">Home</a>
-        <a class="nav-link" href="./favorites.html">Favorites</a>
-      </nav>
-
-      <ul class="social-list">
-        <li>
-          <a href="https://www.facebook.com/goITclub/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <path fill="currentColor"
-                d="M19.52 4.64c0.24 0 0.48 0 0.96 0v3.6c-0.24 0-0.72 0-1.2 0s-0.96 0-1.2 0.24c-0.24 0.24-0.24 0.48-0.24 1.040 0 0.48 0 0.8 0 1.28h2.64v3.040h-2.64v13.2h-4.080v-13.28h-2.16v-3.040h2.16v-1.040c0-1.76 0.24-3.040 0.72-3.6 0.72-1.040 2.16-1.52 4.32-1.52 0.24 0.080 0.48 0.080 0.72 0.080z" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/goitclub/" target="_blank" rel="noopener noreferrer"
-            aria-label="Instagram">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <path fill="currentColor"
-                d="M28.717 10.756c-0.016-1.074-0.215-2.14-0.596-3.145-0.667-1.716-2.024-3.073-3.743-3.737-0.994-0.373-2.044-0.573-3.108-0.596-1.368-0.061-1.801-0.078-5.273-0.078s-3.917 0-5.274 0.078c-1.062 0.023-2.112 0.223-3.106 0.596-1.719 0.664-3.078 2.021-3.743 3.737-0.374 0.992-0.576 2.041-0.596 3.101-0.061 1.367-0.080 1.8-0.080 5.265s0 3.909 0.080 5.265c0.021 1.062 0.222 2.109 0.596 3.104 0.667 1.714 2.024 3.071 3.744 3.735 0.989 0.386 2.040 0.605 3.106 0.639 1.369 0.061 1.803 0.080 5.274 0.080s3.916 0 5.274-0.080c1.062-0.021 2.113-0.221 3.108-0.595 1.719-0.666 3.076-2.022 3.743-3.737 0.374-0.994 0.574-2.041 0.596-3.104 0.061-1.365 0.080-1.798 0.080-5.265-0.003-3.466-0.003-3.906-0.082-5.264zM15.99 22.531c-3.631 0-6.572-2.936-6.572-6.561s2.941-6.561 6.572-6.561c3.628 0 6.572 2.936 6.572 6.561s-2.944 6.561-6.572 6.561zM22.823 10.696c-0.849 0-1.532-0.684-1.532-1.53s0.684-1.53 1.532-1.53c0.846 0 1.531 0.684 1.531 1.53s-0.685 1.53-1.531 1.53z" />
-              <path fill="currentColor"
-                d="M15.992 19.976c2.211 0 4.004-1.793 4.004-4.004s-1.793-4.004-4.004-4.004c-2.211 0-4.004 1.793-4.004 4.004s1.793 4.004 4.004 4.004z" />
-            </svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/c/GoIT" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-              <path fill="currentColor"
-                d="M24.24 6c-1.36-0.080-4.16-0.16-8.4-0.16h-0.56c-4.080 0-6.8 0.080-8.16 0.24-1.84 0.16-3.12 0.64-3.84 1.28-0.64 0.56-1.12 1.6-1.28 2.96-0.080 0.88-0.16 2.72-0.16 5.52v0.4c0 2.64 0.080 4.48 0.24 5.36 0.24 1.28 0.64 2.24 1.44 2.8 0.8 0.64 2.16 1.040 4.080 1.2 1.36 0.080 4.16 0.16 8.4 0.16h0.56c4.080 0 6.8-0.080 8.16-0.24 1.84-0.16 3.12-0.64 3.84-1.28 0.64-0.56 1.12-1.6 1.28-2.96 0.080-0.88 0.16-2.72 0.16-5.52v-0.4c0-2.64-0.080-4.48-0.24-5.36-0.24-1.28-0.64-2.24-1.44-2.8-0.8-0.64-2.16-1.040-4.080-1.2zM21.12 15.84l-8.8 5.28v-10.56l8.8 5.28z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-
-      <button class="burger-btn" type="button" data-menu-open>☰</button>
-    </div>
-
-    <div class="mobile-menu" data-menu>
-      <button class="menu-close" type="button" data-menu-close>×</button>
-      <a class="logo mobile-logo" href="./index.html">YOUR ENERGY</a>
-      <nav class="mobile-nav">
-        <a class="nav-link active" href="./index.html">Home</a>
-        <a class="nav-link" href="./favorites.html">Favorites</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-top">
-          <div>
-            <h1 class="hero-title">Get <span>Body</span> in shape, Stay healthy</h1>
-            <p class="hero-text">
-              Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and nutrition
-              support.
-            </p>
-          </div>
-          <div class="hero-tags">
-            <img class="hero-small-img" src="./images/hero/small-img.png" alt="Women training" />
-            <ul class="tags-list">
-              <li>#Sport</li>
-              <li>#Healthy</li>
-              <li>#Workout</li>
-              <li>#Diet</li>
-            </ul>
-          </div>
-        </div>
-
-        <picture>
-          <source srcset="./images/hero/women2x.png" media="(min-width: 768px)" />
-          <img class="hero-img" src="./images/hero/women.png" alt="Women doing sport" />
-        </picture>
-
-        <ul class="tags-list-bottom">
-          <li>#Sport</li>
-          <li>#Healthy</li>
-          <li>#Workout</li>
-          <li>#Diet</li>
+        <ul class="social-list">
+          <li>
+            <a
+              href="https://www.facebook.com/goITclub/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <path
+                  fill="currentColor"
+                  d="M19.52 4.64c0.24 0 0.48 0 0.96 0v3.6c-0.24 0-0.72 0-1.2 0s-0.96 0-1.2 0.24c-0.24 0.24-0.24 0.48-0.24 1.040 0 0.48 0 0.8 0 1.28h2.64v3.040h-2.64v13.2h-4.080v-13.28h-2.16v-3.040h2.16v-1.040c0-1.76 0.24-3.040 0.72-3.6 0.72-1.040 2.16-1.52 4.32-1.52 0.24 0.080 0.48 0.080 0.72 0.080z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <path
+                  fill="currentColor"
+                  d="M28.717 10.756c-0.016-1.074-0.215-2.14-0.596-3.145-0.667-1.716-2.024-3.073-3.743-3.737-0.994-0.373-2.044-0.573-3.108-0.596-1.368-0.061-1.801-0.078-5.273-0.078s-3.917 0-5.274 0.078c-1.062 0.023-2.112 0.223-3.106 0.596-1.719 0.664-3.078 2.021-3.743 3.737-0.374 0.992-0.576 2.041-0.596 3.101-0.061 1.367-0.080 1.8-0.080 5.265s0 3.909 0.080 5.265c0.021 1.062 0.222 2.109 0.596 3.104 0.667 1.714 2.024 3.071 3.744 3.735 0.989 0.386 2.040 0.605 3.106 0.639 1.369 0.061 1.803 0.080 5.274 0.080s3.916 0 5.274-0.080c1.062-0.021 2.113-0.221 3.108-0.595 1.719-0.666 3.076-2.022 3.743-3.737 0.374-0.994 0.574-2.041 0.596-3.104 0.061-1.365 0.080-1.798 0.080-5.265-0.003-3.466-0.003-3.906-0.082-5.264zM15.99 22.531c-3.631 0-6.572-2.936-6.572-6.561s2.941-6.561 6.572-6.561c3.628 0 6.572 2.936 6.572 6.561s-2.944 6.561-6.572 6.561zM22.823 10.696c-0.849 0-1.532-0.684-1.532-1.53s0.684-1.53 1.532-1.53c0.846 0 1.531 0.684 1.531 1.53s-0.685 1.53-1.531 1.53z"
+                />
+                <path
+                  fill="currentColor"
+                  d="M15.992 19.976c2.211 0 4.004-1.793 4.004-4.004s-1.793-4.004-4.004-4.004c-2.211 0-4.004 1.793-4.004 4.004s1.793 4.004 4.004 4.004z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/c/GoIT"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <path
+                  fill="currentColor"
+                  d="M24.24 6c-1.36-0.080-4.16-0.16-8.4-0.16h-0.56c-4.080 0-6.8 0.080-8.16 0.24-1.84 0.16-3.12 0.64-3.84 1.28-0.64 0.56-1.12 1.6-1.28 2.96-0.080 0.88-0.16 2.72-0.16 5.52v0.4c0 2.64 0.080 4.48 0.24 5.36 0.24 1.28 0.64 2.24 1.44 2.8 0.8 0.64 2.16 1.040 4.080 1.2 1.36 0.080 4.16 0.16 8.4 0.16h0.56c4.080 0 6.8-0.080 8.16-0.24 1.84-0.16 3.12-0.64 3.84-1.28 0.64-0.56 1.12-1.6 1.28-2.96 0.080-0.88 0.16-2.72 0.16-5.52v-0.4c0-2.64-0.080-4.48-0.24-5.36-0.24-1.28-0.64-2.24-1.44-2.8-0.8-0.64-2.16-1.040-4.080-1.2zM21.12 15.84l-8.8 5.28v-10.56l8.8 5.28z"
+                />
+              </svg>
+            </a>
+          </li>
         </ul>
+
+        <button class="burger-btn" type="button" data-menu-open>☰</button>
       </div>
-    </section>
 
-    <section class="exercises-section">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Exercises <span data-current-category></span></h2>
-          <div class="filters-wrap">
-            <form class="search-form is-hidden" data-search-form>
-              <input class="search-input" type="text" name="search" placeholder="Search" />
-              <button class="search-btn" type="submit">⌕</button>
-            </form>
-            <ul class="filter-list">
-              <li><button class="filter-btn active" type="button" data-filter="Muscles">Muscles</button></li>
-              <li><button class="filter-btn" type="button" data-filter="Body parts">Body parts</button></li>
-              <li><button class="filter-btn" type="button" data-filter="Equipment">Equipment</button></li>
-            </ul>
-          </div>
-        </div>
+      <div class="mobile-menu" data-menu>
+        <button class="menu-close" type="button" data-menu-close>×</button>
+        <a class="logo mobile-logo" href="./index.html">YOUR ENERGY</a>
+        <nav class="mobile-nav">
+          <a class="nav-link active" href="./index.html">Home</a>
+          <a class="nav-link" href="./favorites.html">Favorites</a>
+        </nav>
+      </div>
+    </header>
 
-        <div class="main-layout">
-          <aside class="sidebar">
-            <div class="quote-card" data-quote></div>
-            <img class="sidebar-img" src="./images/hero/women.png" alt="Sport lifestyle" />
-            <div class="sport-card">
-              <h3>110 min</h3>
-              <p>Daily norm of sports</p>
-              <span>The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical
-                activity throughout the week.</span>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-top">
+            <div>
+              <h1 class="hero-title">
+                Get <span>Body</span> in shape, Stay healthy
+              </h1>
+              <p class="hero-text">
+                Transform your physique and embrace a healthier lifestyle with
+                our comprehensive fitness and nutrition support.
+              </p>
             </div>
-          </aside>
+            <div class="hero-tags">
+              <img
+                class="hero-small-img"
+                src="./images/hero/small-img.png"
+                alt="Women training"
+              />
+              <ul class="tags-list">
+                <li>#Sport</li>
+                <li>#Healthy</li>
+                <li>#Workout</li>
+                <li>#Diet</li>
+              </ul>
+            </div>
+          </div>
 
-          <div class="content-area">
-            <ul class="categories-list" data-categories-list></ul>
-            <ul class="exercises-list is-hidden" data-exercises-list></ul>
-            <div class="pagination" data-pagination></div>
+          <picture>
+            <source
+              srcset="./images/hero/women2x.png"
+              media="(min-width: 768px)"
+            />
+            <img
+              class="hero-img"
+              src="./images/hero/women.png"
+              alt="Women doing sport"
+            />
+          </picture>
+
+          <ul class="tags-list-bottom">
+            <li>#Sport</li>
+            <li>#Healthy</li>
+            <li>#Workout</li>
+            <li>#Diet</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="exercises-section">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">
+              Exercises <span data-current-category></span>
+            </h2>
+            <div class="filters-wrap">
+              <form class="search-form is-hidden" data-search-form>
+                <input
+                  class="search-input"
+                  type="text"
+                  name="search"
+                  placeholder="Search"
+                />
+                <button class="search-btn" type="submit">⌕</button>
+              </form>
+              <ul class="filter-list">
+                <li>
+                  <button
+                    class="filter-btn active"
+                    type="button"
+                    data-filter="Muscles"
+                  >
+                    Muscles
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="filter-btn"
+                    type="button"
+                    data-filter="Body parts"
+                  >
+                    Body parts
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="filter-btn"
+                    type="button"
+                    data-filter="Equipment"
+                  >
+                    Equipment
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="main-layout">
+            <aside class="sidebar">
+              <div class="quote-card" data-quote></div>
+              <img
+                class="sidebar-img"
+                src="./images/hero/women.png"
+                alt="Sport lifestyle"
+              />
+              <div class="sport-card">
+                <h3>110 min</h3>
+                <p>Daily norm of sports</p>
+                <span
+                  >The World Health Organization recommends at least 150 minutes
+                  of moderate-intensity aerobic physical activity throughout the
+                  week.</span
+                >
+              </div>
+            </aside>
+
+            <div class="content-area">
+              <ul class="categories-list" data-categories-list></ul>
+              <ul class="exercises-list is-hidden" data-exercises-list></ul>
+              <div class="pagination" data-pagination></div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__left">
-        <a href="/" class="footer__logo">YOUR ENERGY</a>
-        <ul class="footer__socials">
-          <li><a href="https://www.facebook.com/goITclub/" target="_blank" class="footer__social-link">f</a></li>
-          <li><a href="https://www.instagram.com/goitclub/" target="_blank" class="footer__social-link">◎</a></li>
-          <li><a href="https://www.youtube.com/c/GoIT" target="_blank" class="footer__social-link">▶</a></li>
-        </ul>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__left">
+          <a href="/" class="footer__logo">YOUR ENERGY</a>
+          <ul class="footer__socials">
+            <li>
+              <a
+                href="https://www.facebook.com/goITclub/"
+                target="_blank"
+                class="footer__social-link"
+                >f</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/goitclub/"
+                target="_blank"
+                class="footer__social-link"
+                >◎</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/c/GoIT"
+                target="_blank"
+                class="footer__social-link"
+                >▶</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer__center">
+          <p class="footer__slogan">
+            Transforming your <em>body</em> shape with us
+          </p>
+        </div>
+        <div class="footer__right">
+          <p class="footer__subscribe-text">
+            Subscribe and learn about new exercises!
+          </p>
+          <form class="footer__form" id="subscriptionForm">
+            <input
+              class="footer__input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <button class="footer__btn" type="submit">Send</button>
+          </form>
+        </div>
       </div>
-      <div class="footer__center">
-        <p class="footer__slogan">Transforming your <em>body</em> shape with us</p>
-      </div>
-      <div class="footer__right">
-        <p class="footer__subscribe-text">Subscribe and learn about new exercises!</p>
-        <form class="footer__form" id="subscriptionForm">
-          <input class="footer__input" type="email" name="email" placeholder="Email" required />
-          <button class="footer__btn" type="submit">Send</button>
-        </form>
+    </footer>
+
+    <div class="modal-backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-close" type="button" data-modal-close>
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style="width: 28px; height: 28px; display: block"
+          >
+            <path
+              d="M19.8334 8.16675L8.16675 19.8334M8.16675 8.16675L19.8334 19.8334"
+              stroke="#F4F4F4"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div data-modal-content></div>
       </div>
     </div>
-  </footer>
 
-  <div class="modal-backdrop is-hidden" data-modal>
-    <div class="modal">
-      <button class="modal-close" type="button" data-modal-close>
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="width: 28px; height: 28px; display: block;">
-          <path d="M19.8334 8.16675L8.16675 19.8334M8.16675 8.16675L19.8334 19.8334" stroke="#F4F4F4" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <div data-modal-content></div>
+    <div class="modal-backdrop is-hidden" data-rating-modal>
+      <div class="modal rating-modal">
+        <button class="modal-close" type="button" data-modal-close>
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style="width: 28px; height: 28px; display: block"
+          >
+            <path
+              d="M19.8334 8.16675L8.16675 19.8334M8.16675 8.16675L19.8334 19.8334"
+              stroke="#F4F4F4"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div data-rating-modal-content></div>
+      </div>
     </div>
-  </div>
 
-  <div class="modal-backdrop is-hidden" data-rating-modal>
-    <div class="modal rating-modal">
-      <button class="modal-close" type="button" data-modal-close>
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"
-          style="width: 28px; height: 28px; display: block;">
-          <path d="M19.8334 8.16675L8.16675 19.8334M8.16675 8.16675L19.8334 19.8334" stroke="#F4F4F4" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <div data-rating-modal-content></div>
-    </div>
-  </div>
-
-  <script type="module" src="./main.js"></script>
-</body>
-
+    <script type="module" src="./main.js"></script>
+  </body>
 </html>
