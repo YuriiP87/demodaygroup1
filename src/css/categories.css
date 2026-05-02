@@ -38,6 +38,7 @@
   justify-content: center;
   text-align: center;
   color: var(--white);
+  background: linear-gradient(0deg, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.5));
 }
 
 .category-card h3 {
