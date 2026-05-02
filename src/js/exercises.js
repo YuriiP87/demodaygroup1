@@ -5,6 +5,7 @@ import { openExerciseModal } from './modal-exercise.js';
 
 const exercisesList = document.querySelector('[data-exercises-list]');
 const searchForm = document.querySelector('[data-search-form]');
+const paginationEl = document.querySelector('[data-pagination]');
 
 let activeController = null;
 
@@ -46,6 +47,27 @@ function exerciseMarkup(exercise) {
   `;
 }
 
+// PAGINATION
+function renderPagination(totalPages) {
+  if (!paginationEl) return;
+
+  const markup = Array.from({ length: totalPages }, (_, index) => {
+    const page = index + 1;
+
+    return `
+      <button
+        class="pagination-btn ${page === state.page ? 'active' : ''}"
+        type="button"
+        data-page="${page}"
+      >
+        ${page}
+      </button>
+    `;
+  }).join('');
+
+  paginationEl.innerHTML = markup;
+}
+
 export async function loadExercises() {
   if (!exercisesList) return;
 
@@ -67,6 +89,7 @@ export async function loadExercises() {
 
     exercisesList.innerHTML = results.map(exerciseMarkup).join('');
 
+    renderPagination(3);
     exercisesList.querySelectorAll('[data-start]').forEach(button => {
       button.addEventListener('click', () => {
         openExerciseModal(button.dataset.start);
@@ -77,6 +100,16 @@ export async function loadExercises() {
     exercisesList.innerHTML = '<li>Failed to load exercises.</li>';
   }
 }
+
+paginationEl?.addEventListener('click', event => {
+  if (!event.target.classList.contains('pagination-btn')) return;
+
+  if (state.mode !== 'exercises') return;
+
+  state.page = Number(event.target.dataset.page);
+
+  loadExercises();
+});
 
 if (searchForm) {
   searchForm.addEventListener('submit', event => {
