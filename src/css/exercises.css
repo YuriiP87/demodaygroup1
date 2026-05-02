@@ -71,10 +71,12 @@
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid transparent;
+  color: var(--gray);
 }
 
 .pagination button.active {
   border-color: var(--dark);
+  color: var(--dark);
 }
 
 @media screen and (min-width: 768px) {
