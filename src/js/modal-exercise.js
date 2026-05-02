@@ -65,7 +65,8 @@ function bindRatingModalEvents(exerciseId) {
 
     try {
       await addRating(exerciseId, { rating: selectedRating, email, comment });
-    } catch {
+    } catch (error) {
+  console.error('Failed to add rating:', error);
       
     }
 
@@ -170,8 +171,8 @@ function renderModal(exercise) {
   const isFav = isFavorite(exercise._id);
 
 const favouritesButtonText = isFav
-  ? 'Remove from favorites'
-  : 'Add to cart';
+  ? "Remove from favorites"
+  : "Add to favorites";
 
 const icon = isFav ? cartIcon : heartIcon;
 
