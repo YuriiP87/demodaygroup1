@@ -137,35 +137,36 @@
   display: flex;
   gap: 8px;
   margin-top: 64px;
+  justify-content: flex-end;
 }
 
-.modal-actions button {
+.modal-actions button:not(.btn-fav) {
   padding: 12px 18px;
   border-radius: 30px;
 }
 
 .modal-content-grid {
   grid-template-columns: 270px 1fr;
+  justify-content: center;
 }
 
 .btn-fav {
-  display: flex;
+  display: inline-flex;
   gap: 8px;
   border-radius: 30px;
-  padding: 12px 24px;
-  width: 194px;
+  justify-content: flex-start;
+  width: fit-content;
   height: 48px;
-  justify-content: center;
-  border-radius: 30px;
+
   padding: 12px 24px;
-  width: 194px;
-  height: 48px;
+
   background: #f4f4f4;
   align-items: center;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   color: #242424;
+  white-space: nowrap;
 }
 
 .btn-rating {
@@ -381,7 +382,7 @@
   }
 
   .btn-fav {
-    width: 194px;
+    width: auto;
   }
 
   .btn-rating {
