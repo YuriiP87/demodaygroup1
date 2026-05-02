@@ -12,7 +12,7 @@ let selectedRating = 0;
 
 function updateRatingStars(rating) {
   selectedRating = rating;
-  const ratingValue = ratingModalContent?.querySelector('[data-rating-value]');
+  const ratingValue = ratingModalContent?.querySelector('.rating-value');
   const starButtons = ratingModalContent?.querySelectorAll('[data-rating-star]');
 
   if (ratingValue) {
@@ -21,8 +21,15 @@ function updateRatingStars(rating) {
 
   starButtons?.forEach(button => {
     const value = Number(button.dataset.ratingStar);
+    const path = button.querySelector('path');
 
-    button.classList.toggle('is-active-star', value <= rating);
+    if (path) {
+      if (value <= rating) {
+        path.setAttribute('fill', '#eea10c');
+      } else {
+        path.setAttribute('fill', 'rgba(244, 244, 244, 0.2)');
+      }
+    }
   });
 }
 
@@ -47,7 +54,7 @@ function bindRatingModalEvents(exerciseId) {
     try {
       await addRating(exerciseId, { rating: selectedRating, email, comment });
     } catch {
-      // ignore API errors here
+      
     }
 
     closeRatingModal();
@@ -56,7 +63,7 @@ function bindRatingModalEvents(exerciseId) {
     }
   });
 
-  // Auto-resize textarea
+  
   const textarea = ratingModalContent?.querySelector('textarea[name="comment"]');
   if (textarea) {
     textarea.addEventListener('input', function() {
@@ -70,39 +77,44 @@ function openRatingModal(exerciseId) {
   if (!ratingModal || !ratingModalContent) return;
 
   selectedRating = 0;
+  
   ratingModal.classList.remove('is-hidden');
+  
+  if (modal) {
+    modal.classList.add('is-hidden');
+  }
+
   document.body.classList.add('no-scroll');
 
   ratingModalContent.innerHTML = `
     <form class="rating-form">
-      <div class="rating-modal-header">
-        <p class="rating-modal-title">Rating</p>
-      </div>
-      <div class="rating-stars" data-rating-stars <span class="rating-value" data-rating-value>0.0</span>
-        <button type="button" class="rating-star" data-rating-star="1"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
-</svg></button>
-        <button type="button" class="rating-star" data-rating-star="2"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
-</svg></button>
-        <button type="button" class="rating-star" data-rating-star="3"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
-</svg></button>
-        <button type="button" class="rating-star" data-rating-star="4"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
-</svg></button>
-        <button type="button" class="rating-star" data-rating-star="5"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
-</svg></button>
-      </div>
-      <label class="rating-field">
+      <p class="rating-modal-title">Rating</p>
+      
+      <div class="rating-stars" data-rating-stars>
+        <span class="rating-value" data-rating-value>0.0</span>
         
-        <input type="email" name="email" placeholder="Email" required />
-      </label>
-      <label class="rating-field">
-        
-        <textarea name="comment" rows="4" placeholder="Your comment"></textarea>
-      </label>
+        <button type="button" class="rating-star" data-rating-star="1">
+          <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="rgba(244, 244, 244, 0.2)"/></svg>
+        </button>
+        <button type="button" class="rating-star" data-rating-star="2">
+          <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="rgba(244, 244, 244, 0.2)"/></svg>
+        </button>
+        <button type="button" class="rating-star" data-rating-star="3">
+          <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="rgba(244, 244, 244, 0.2)"/></svg>
+        </button>
+        <button type="button" class="rating-star" data-rating-star="4">
+          <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="rgba(244, 244, 244, 0.2)"/></svg>
+        </button>
+        <button type="button" class="rating-star" data-rating-star="5">
+          <svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="rgba(244, 244, 244, 0.2)"/></svg>
+        </button>
+      </div>
+
+      <div class="rating-field">
+        <input type="email" name="email" class="rating-input" placeholder="Email" required />
+        <textarea name="comment" class="rating-textarea" placeholder="Your comment" required></textarea>
+      </div>
+      
       <button type="submit" class="rating-submit">Send</button>
     </form>
   `;
@@ -111,11 +123,10 @@ function openRatingModal(exerciseId) {
 }
 
 function closeRatingModal() {
-  if (!ratingModal) return;
-
   ratingModal.classList.add('is-hidden');
-  if (modal?.classList.contains('is-hidden')) {
-    document.body.classList.remove('no-scroll');
+  
+  if (modal) {
+    modal.classList.remove('is-hidden');
   }
 }
 
@@ -149,13 +160,15 @@ function renderModal(exercise) {
     : 'Add to favorites';
   const GiveARating = "Give a rating"
 
-const ratingValue = Math.round(exercise.rating || 0); 
+const exactRating = Number(exercise.rating || 0).toFixed(1);
+  const ratingValueRound = Math.round(exercise.rating || 0); 
   let starsHTML = '';
   
   for (let i = 1; i <= 5; i++) {
-    const starColor = i <= ratingValue ? '#eea10c' : 'rgba(244, 244, 244, 0.2)';
-    starsHTML += `<svg width="18" height="18" style="color: ${starColor}; margin-right: 2px;" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="currentColor"/>
+    const starColor = i <= ratingValueRound ? '#eea10c' : 'rgba(244, 244, 244, 0.2)';
+    
+    starsHTML += `<svg width="18" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.38586 0.691212C8.68521 -0.230099 9.98862 -0.2301 10.288 0.691211L11.8066 5.36497C11.9404 5.777 12.3244 6.05596 12.7576 6.05596H17.6719C18.6406 6.05596 19.0434 7.29557 18.2597 7.86497L14.284 10.7535C13.9335 11.0082 13.7868 11.4595 13.9207 11.8716L15.4393 16.5453C15.7386 17.4666 14.6842 18.2327 13.9004 17.6633L9.9247 14.7748C9.57421 14.5202 9.09962 14.5202 8.74913 14.7748L4.77339 17.6633C3.98968 18.2327 2.9352 17.4666 3.23455 16.5453L4.75314 11.8716C4.88702 11.4595 4.74036 11.0082 4.38987 10.7535L0.414135 7.86497C-0.369579 7.29557 0.0331967 6.05596 1.00192 6.05596H5.9162C6.34943 6.05596 6.73339 5.777 6.86726 5.36497L8.38586 0.691212Z" fill="${starColor}"/>
     </svg>`;
   }
 
@@ -166,10 +179,10 @@ const ratingValue = Math.round(exercise.rating || 0);
       <div>
         <h2>${exercise.name}</h2>
       
-        <p style="display: flex; align-items: center; gap: 4px;">
-      <span class="rating-value">${exercise.rating}</span> 
-      <span class="rating-stars-display" style="display: flex; align-items: center;">${starsHTML}</span>
-    </p>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+      <span style="font-size: 14px; font-weight: 500; color: #f4f4f4; line-height: 1;">${exactRating}</span> 
+      <div style="display: flex; gap: 2px; align-items: center;">${starsHTML}</div>
+    </div>
 
         <ul class="modal-info">
           <li class="modal-info-item">
@@ -228,11 +241,9 @@ export async function openExerciseModal(id) {
 
 function closeModal() {
   if (!modal) return;
-
+  
   modal.classList.add('is-hidden');
-  if (ratingModal?.classList.contains('is-hidden')) {
-    document.body.classList.remove('no-scroll');
-  }
+  document.body.classList.remove('no-scroll');
 }
 
 closeBtn?.addEventListener('click', closeModal);
