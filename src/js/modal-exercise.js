@@ -77,7 +77,6 @@ function renderModal(exercise) {
     ? 'Remove from favorites'
     : 'Add to favorites';
 
-
   const buttonIcon = favoriteActive ? '🗑' : '♡';
 
   modalContent.innerHTML = `
