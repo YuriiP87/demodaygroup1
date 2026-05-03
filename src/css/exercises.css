@@ -213,6 +213,22 @@
 @media screen and (min-width: 768px) {
   .exercises-list {
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+
+  .exercise-card {
+    max-width: 344px;
+  }
+
+  .exercise-card-title {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercise-card {
+    max-width: 405px;
   }
 }
 

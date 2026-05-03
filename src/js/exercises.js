@@ -3,8 +3,13 @@ import { getExercises } from './api.js';
 import { state } from './filters.js';
 import { openExerciseModal } from './modal-exercise.js';
 
+const runningIcon = new URL('../images/icons/iconrunning.svg', import.meta.url)
+  .href;
+const arrowIcon = new URL('../images/icons/btnstart.svg', import.meta.url).href;
+
 const exercisesList = document.querySelector('[data-exercises-list]');
 const searchForm = document.querySelector('[data-search-form]');
+const paginationEl = document.querySelector('[data-pagination]');
 
 let activeController = null;
 
@@ -77,6 +82,26 @@ function exerciseMarkup(exercise) {
         `;
 }
 
+function renderPagination(totalPages) {
+  if (!paginationEl) return;
+
+  const markup = Array.from({ length: totalPages }, (_, index) => {
+    const page = index + 1;
+
+    return `
+      <button
+        class="pagination-btn ${page === state.page ? 'active' : ''}"
+        type="button"
+        data-page="${page}"
+      >
+        ${page}
+      </button>
+    `;
+  }).join('');
+
+  paginationEl.innerHTML = markup;
+}
+
 export async function loadExercises() {
   if (!exercisesList) return;
 
@@ -89,14 +114,22 @@ export async function loadExercises() {
     const data = await getExercises(getExerciseParams(), {
       signal: activeController.signal,
     });
+
     const results = data.results || [];
 
     if (!results.length) {
       exercisesList.innerHTML = '<li>No exercises found.</li>';
+
+      if (paginationEl) {
+        paginationEl.innerHTML = '';
+      }
+
       return;
     }
 
     exercisesList.innerHTML = results.map(exerciseMarkup).join('');
+
+    renderPagination(data.totalPages || 3);
 
     exercisesList.querySelectorAll('[data-start]').forEach(button => {
       button.addEventListener('click', () => {
@@ -105,9 +138,23 @@ export async function loadExercises() {
     });
   } catch (error) {
     if (axios.isCancel(error)) return;
+
     exercisesList.innerHTML = '<li>Failed to load exercises.</li>';
+
+    if (paginationEl) {
+      paginationEl.innerHTML = '';
+    }
   }
 }
+
+paginationEl?.addEventListener('click', event => {
+  if (!event.target.classList.contains('pagination-btn')) return;
+  if (state.mode !== 'exercises') return;
+
+  state.page = Number(event.target.dataset.page);
+
+  loadExercises();
+});
 
 if (searchForm) {
   searchForm.addEventListener('submit', event => {
