@@ -48,13 +48,13 @@
 }
 
 .modal-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
   margin: 24px 0;
   padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(244, 244, 244, 0.2);
+  border-bottom: 1px solid rgba(244, 244, 244, 0.2);
 }
 
 .modal-info li {
@@ -65,7 +65,8 @@
 
 .modal-info-label {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+  line-height: 18px;
+  color: rgba(244, 244, 244, 0.4);
 }
 
 .modal-info-value {
@@ -75,8 +76,9 @@
 
 .modal p {
   font-size: 14px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
+  line-height: 18px;
+  color: rgba(244, 244, 244, 0.6);
+  margin-top: 16px;
 }
 
 .modal-actions {
@@ -110,9 +112,21 @@
 @media screen and (min-width: 768px) {
   .modal {
     padding: 40px;
+    width: 708px;
+    height: 449px;
+    box-sizing: border-box;
   }
 
   .modal-content-grid {
     grid-template-columns: 270px 1fr;
   }
+}
+
+.modal {
+  width: 708px;
+  height: auto;
+  min-height: 449px;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow: visible;
 }
