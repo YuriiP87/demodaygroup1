@@ -1,7 +1,8 @@
 import { STORAGE_KEYS } from './constants.js';
 import { openExerciseModal } from './modal-exercise.js';
 
-const runningIcon = new URL('../images/icons/iconrunning.svg', import.meta.url).href;
+const runningIcon = new URL('../images/icons/iconrunning.svg', import.meta.url)
+  .href;
 const arrowIcon = new URL('../images/icons/btnstart.svg', import.meta.url).href;
 
 const list = document.querySelector('[data-favorites-list]');
