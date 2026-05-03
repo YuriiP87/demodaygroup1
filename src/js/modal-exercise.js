@@ -106,13 +106,17 @@ function renderModal(exercise) {
     </div>
   `;
 
-  modalContent.querySelector('[data-fav-btn]')?.addEventListener('click', () => {
-    toggleFavorite(exercise);
-  });
+  modalContent
+    .querySelector('[data-fav-btn]')
+    ?.addEventListener('click', () => {
+      toggleFavorite(exercise);
+    });
 
-  modalContent.querySelector('[data-open-rating]')?.addEventListener('click', () => {
-    renderRatingModal();
-  });
+  modalContent
+    .querySelector('[data-open-rating]')
+    ?.addEventListener('click', () => {
+      renderRatingModal();
+    });
 }
 
 function renderRatingModal() {
@@ -188,7 +192,8 @@ export async function openExerciseModal(id) {
     const exercise = await getExerciseById(id);
     renderModal(exercise);
   } catch (error) {
-    modalContent.innerHTML = '<p class="modal-error">Failed to load exercise.</p>';
+    modalContent.innerHTML =
+      '<p class="modal-error">Failed to load exercise.</p>';
   }
 }
 

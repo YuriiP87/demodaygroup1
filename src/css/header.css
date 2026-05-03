@@ -3,16 +3,14 @@
 }
 
 .header-container {
-  display: grid;
+  display: flex;
   grid-template-columns: auto 1fr auto;
   align-items: center;
 }
 
 /* LOGO */
 .logo {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  display: flex;
 }
 
 /* NAV */
@@ -82,14 +80,6 @@
   font-size: 32px;
   line-height: 1;
   cursor: pointer;
-}
-
-.mobile-logo {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-
-  color: #f4f4f4;
 }
 
 .mobile-nav {

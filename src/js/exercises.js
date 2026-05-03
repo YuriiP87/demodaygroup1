@@ -3,7 +3,8 @@ import { getExercises } from './api.js';
 import { state } from './filters.js';
 import { openExerciseModal } from './modal-exercise.js';
 
-const runningIcon = new URL('../images/icons/iconrunning.svg', import.meta.url).href;
+const runningIcon = new URL('../images/icons/iconrunning.svg', import.meta.url)
+  .href;
 const arrowIcon = new URL('../images/icons/btnstart.svg', import.meta.url).href;
 
 const exercisesList = document.querySelector('[data-exercises-list]');
