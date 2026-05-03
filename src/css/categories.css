@@ -3,16 +3,26 @@
   gap: 32px;
 }
 
+.sidebar {
+  order: 2;
+}
+
+.content-area {
+  order: 1;
+}
+
 .categories-list {
   display: grid;
-  gap: 20px;
+  gap: 15px;
 }
+
+/* ===== CATEGORY CARD ===== */
 
 .category-card {
   position: relative;
   height: 220px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 12px;
   cursor: pointer;
   background-color: var(--dark);
 }
@@ -21,36 +31,61 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.65;
+  display: block;
   transition: transform 250ms ease;
 }
 
+/* Градиент поверх картинки */
+.category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg,
+      rgba(17, 17, 17, 0.5),
+      rgba(17, 17, 17, 0.5));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover эффект */
 .category-card:hover img {
   transform: scale(1.04);
 }
 
+/* Контент поверх */
 .category-card div {
   position: absolute;
   inset: 0;
+  z-index: 2;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4px;
+
   text-align: center;
+<<<<<<< HEAD
   color: var(--white);
   background: linear-gradient(0deg, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.5));
+=======
+  color: #f4f4f4;
+>>>>>>> main
 }
 
 .category-card h3 {
   font-size: 24px;
+  line-height: 24px;
   font-weight: 400;
 }
 
 .category-card p {
-  margin-top: 4px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(244, 244, 244, 0.4);
 }
+
+/* ===== MEDIA ===== */
 
 @media screen and (min-width: 768px) {
   .categories-list {
@@ -66,6 +101,14 @@
   .main-layout {
     grid-template-columns: 444px 1fr;
     align-items: start;
+  }
+
+  .sidebar {
+    order: 0;
+  }
+
+  .content-area {
+    order: 0;
   }
 
   .categories-list {

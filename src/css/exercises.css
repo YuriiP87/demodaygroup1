@@ -4,58 +4,130 @@
 
 .exercises-list {
   display: grid;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
 .exercise-card {
-  padding: 20px;
-  border-radius: 16px;
+  width: 100%;
+  min-height: 141px;
+  padding: 16px;
+  border-radius: 15px;
   background-color: var(--white);
+  overflow: hidden;
 }
 
 .exercise-card-top {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.exercise-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .badge {
-  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 8px;
   border: 1px solid var(--dark);
-  border-radius: 30px;
-  text-transform: uppercase;
+  border-radius: 999px;
   font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--dark);
 }
 
-.exercise-card-top button {
-  margin-left: auto;
+.exercise-rating {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--dark);
+}
+
+.start-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0;
+  border: none;
   background-color: transparent;
+  cursor: pointer;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.start-btn img {
+  width: 18px;
+  height: 18px;
+  transform: translateY(1px);
+}
+
+.exercise-card-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  min-width: 0;
+}
+
+.exercise-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--dark);
+}
+
+.exercise-icon img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: brightness(0) invert(1);
 }
 
 .exercise-card h3 {
-  margin-bottom: 12px;
-  font-size: 22px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
   font-weight: 400;
-}
-
-.exercise-card p {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--gray);
-}
-
-.exercise-card b {
   color: var(--dark);
-  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.remove-btn {
-  margin-top: 16px;
-  padding: 10px 16px;
-  border-radius: 30px;
-  background-color: var(--dark);
-  color: var(--white);
+.exercise-info {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 4px;
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(36, 36, 36, 0.4);
+}
+
+.exercise-info b {
+  font-weight: 400;
+  color: var(--dark);
 }
 
 .pagination {
@@ -71,14 +143,33 @@
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid transparent;
+  color: var(--gray);
+  cursor: pointer;
 }
 
 .pagination button.active {
   border-color: var(--dark);
+  color: var(--dark);
 }
 
 @media screen and (min-width: 768px) {
   .exercises-list {
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+
+  .exercise-card {
+    max-width: 344px;
+  }
+
+  .exercise-card-title {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .exercise-card {
+    max-width: 405px;
   }
 }
