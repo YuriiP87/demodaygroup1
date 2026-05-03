@@ -25,9 +25,22 @@
   position: absolute;
   top: 16px;
   right: 16px;
+  width: 24px;
+  height: 24px;
   background: transparent;
-  color: var(--white);
-  font-size: 28px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 10;
+}
+
+.modal-close svg {
+  stroke: #f4f4f4;
+  width: 100%;
+  height: 100%;
 }
 
 .modal-content-grid {
@@ -158,7 +171,7 @@
   padding: 40px;
   border-radius: 20px;
   width: 100%;
-  max-width: 430px; /* Твій розмір з Фігми */
+  max-width: 430px;
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -235,4 +248,26 @@
   color: #f4f4f4;
   font-size: 14px;
   margin-right: 8px;
+}
+
+.rating-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.rating-close-btn svg {
+  stroke: #f4f4f4;
+  width: 100%;
+  height: 100%;
 }

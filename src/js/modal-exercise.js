@@ -114,7 +114,12 @@ function openRatingModal(exerciseId) {
   document.body.classList.add('no-scroll');
 
   ratingModalContent.innerHTML = `
-    <form class="rating-form">
+    <form class="rating-form" style="position: relative;">
+      <button type="button" class="rating-close-btn" data-rating-modal-close>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="#F4F4F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
       <p class="rating-modal-title">${formatExerciseName('Rating')}</p>
       
       <div class="rating-stars" data-rating-stars>
@@ -145,6 +150,8 @@ function openRatingModal(exerciseId) {
       <button type="submit" class="rating-submit">${formatExerciseName('Send')}</button>
     </form>
   `;
+  
+  ratingModalContent.querySelector('[data-rating-modal-close]')?.addEventListener('click', closeRatingModal);
 
   bindRatingModalEvents(exerciseId);
 }
