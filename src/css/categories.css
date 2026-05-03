@@ -40,9 +40,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg,
-      rgba(17, 17, 17, 0.5),
-      rgba(17, 17, 17, 0.5));
+  background: linear-gradient(
+    0deg,
+    rgba(17, 17, 17, 0.5),
+    rgba(17, 17, 17, 0.5)
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -65,14 +67,13 @@
   gap: 4px;
 
   text-align: center;
-<<<<<<< HEAD
   color: var(--white);
-  background: linear-gradient(0deg, rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.5));
-=======
-  color: #f4f4f4;
->>>>>>> main
+  background: linear-gradient(
+    0deg,
+    rgba(17, 17, 17, 0.5),
+    rgba(17, 17, 17, 0.5)
+  );
 }
-
 .category-card h3 {
   font-size: 24px;
   line-height: 24px;
