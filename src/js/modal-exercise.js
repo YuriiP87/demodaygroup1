@@ -115,7 +115,7 @@ function openRatingModal(exerciseId) {
 
   ratingModalContent.innerHTML = `
     <form class="rating-form">
-      <p class="rating-modal-title">Rating</p>
+      <p class="rating-modal-title">${formatExerciseName('Rating')}</p>
       
       <div class="rating-stars" data-rating-stars>
         <span class="rating-value" data-rating-value>0.0</span>
@@ -138,11 +138,11 @@ function openRatingModal(exerciseId) {
       </div>
 
       <div class="rating-field">
-        <input type="email" name="email" class="rating-input" placeholder="Email" required />
-        <textarea name="comment" class="rating-textarea" placeholder="Your comment" required></textarea>
+        <input type="email" name="email" class="rating-input" placeholder="${formatExerciseName('Email')}" required />
+        <textarea name="comment" class="rating-textarea" placeholder="${formatExerciseName('Your comment')}" required></textarea>
       </div>
       
-      <button type="submit" class="rating-submit">Send</button>
+      <button type="submit" class="rating-submit">${formatExerciseName('Send')}</button>
     </form>
   `;
 
@@ -185,12 +185,12 @@ function renderModal(exercise) {
   const isFav = isFavorite(exercise._id);
 
   const favouritesButtonText = isFav
-    ? 'Remove from favorites'
-    : 'Add to favorites';
+    ? formatExerciseName('Remove from favorites')
+    : formatExerciseName('Add to favorites');
 
   const icon = isFav ? cartIcon : heartIcon;
 
-  const GiveARating = 'Give a rating';
+  const GiveARating = formatExerciseName('Give a rating');
 
   const exactRating = Number(exercise.rating || 0).toFixed(1);
   const ratingValueRound = Math.round(exercise.rating || 0);
@@ -243,10 +243,12 @@ function renderModal(exercise) {
 
         <div class="modal-actions">
           <button type="button" class="btn-fav" data-fav-btn>
-  ${favouritesButtonText}
-  ${icon}
-</button>
-          <button type="button" class="btn-rating">${formatExerciseName(GiveARating)}</button>
+            ${favouritesButtonText}
+            ${icon}
+          </button>
+          <button type="button" class="btn-rating">
+            ${GiveARating}
+          </button>
         </div>
       </div>
     </div>
