@@ -15,6 +15,7 @@
   border-radius: 15px;
   background-color: var(--white);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .exercise-card-top {
@@ -152,15 +153,17 @@
   color: var(--dark);
 }
 
+/* TABLET */
 @media screen and (min-width: 768px) {
   .exercises-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 16px;
     row-gap: 32px;
   }
 
   .exercise-card {
-    max-width: 344px;
+    width: 100%;
+    max-width: none;
   }
 
   .exercise-card-title {
@@ -168,8 +171,10 @@
   }
 }
 
+/* DESKTOP */
 @media screen and (min-width: 1440px) {
   .exercise-card {
-    max-width: 405px;
+    width: 100%;
+    max-width: none;
   }
 }
