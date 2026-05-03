@@ -8,6 +8,8 @@ const closeBtn = document.querySelector('[data-modal-close]');
 let currentExercise = null;
 let selectedRating = 0;
 
+/* ================= LOCAL STORAGE ================= */
+
 function getFavorites() {
   return JSON.parse(localStorage.getItem(STORAGE_KEYS.favorites)) || [];
 }
@@ -19,6 +21,8 @@ function saveFavorites(items) {
 function isFavorite(id) {
   return getFavorites().some(item => item._id === id);
 }
+
+/* ================= RATING ================= */
 
 function createRatingMarkup(rating) {
   const normalizedRating = Number(rating) || 0;
@@ -48,6 +52,8 @@ function createInteractiveRatingMarkup(rating = 0) {
   }).join('');
 }
 
+/* ================= FAVORITES ================= */
+
 function toggleFavorite(exercise) {
   const favorites = getFavorites();
 
@@ -60,12 +66,19 @@ function toggleFavorite(exercise) {
   renderModal(exercise);
 }
 
+/* ================= MODAL ================= */
+
 function renderModal(exercise) {
   currentExercise = exercise;
 
-  const buttonText = isFavorite(exercise._id)
+  const favoriteActive = isFavorite(exercise._id);
+
+  const buttonText = favoriteActive
     ? 'Remove from favorites'
     : 'Add to favorites';
+
+
+  const buttonIcon = favoriteActive ? '🗑' : '♡';
 
   modalContent.innerHTML = `
     <div class="modal-content-grid">
@@ -75,7 +88,9 @@ function renderModal(exercise) {
         <h2>${exercise.name}</h2>
 
         <div class="modal-rating">
-          <span class="modal-rating-number">${Number(exercise.rating || 0).toFixed(1)}</span>
+          <span class="modal-rating-number">
+            ${Number(exercise.rating || 0).toFixed(1)}
+          </span>
 
           <div class="modal-stars">
             ${createRatingMarkup(exercise.rating)}
@@ -95,7 +110,7 @@ function renderModal(exercise) {
         <div class="modal-actions">
           <button class="favorite-btn" type="button" data-fav-btn>
             ${buttonText}
-            <span>♡</span>
+            <span class="fav-icon">${buttonIcon}</span>
           </button>
 
           <button class="rating-btn" type="button" data-open-rating>
@@ -118,6 +133,8 @@ function renderModal(exercise) {
       renderRatingModal();
     });
 }
+
+/* ================= RATING MODAL ================= */
 
 function renderRatingModal() {
   selectedRating = 0;
@@ -179,6 +196,8 @@ function renderRatingModal() {
     renderModal(currentExercise);
   });
 }
+
+/* ================= OPEN / CLOSE ================= */
 
 export async function openExerciseModal(id) {
   if (!modal || !modalContent) return;
