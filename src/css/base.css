@@ -7,6 +7,17 @@
   --accent: #f6f6f6;
 }
 
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--dark);
+}
+
 body {
   font-family: 'DM Sans', Arial, sans-serif;
   background-color: var(--main-bg);
