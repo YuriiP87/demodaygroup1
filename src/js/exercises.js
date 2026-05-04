@@ -37,7 +37,7 @@ function exerciseMarkup(exercise) {
       <div class="exercise-card-top">
         <div class="exercise-card-meta">
           <span class="badge">Workout</span>
-          <span class="exercise-rating">${exercise.rating || '0.0'} ★</span>
+          <span class="exercise-rating">${exercise.rating || '0.0'}</span>
         </div>
 
         <button class="start-btn" type="button" data-start="${exercise._id}">

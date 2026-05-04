@@ -52,6 +52,11 @@
   color: var(--dark);
 }
 
+.exercise-rating::after {
+  content: ' ★';
+  color: #EEA10C;
+}
+
 .start-btn {
   display: flex;
   align-items: center;
