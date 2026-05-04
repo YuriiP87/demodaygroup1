@@ -76,17 +76,29 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.favorites-section .quote-card p,
+.favorites-section .quote-card strong,
+.favorites-section .quote-card .quote-title,
+.favorites-section .quote-card .quote-body,
+.favorites-section .quote-card .quote-author {
+  text-align: left;
+  padding-left: 0;
+  margin-left: 0;
+}
+
 .favorites-section .quote-card p {
   margin: 6px 0 18px;
-  padding-left: 48px;
   font-size: 14px;
   line-height: 1.3;
   color: rgba(255, 255, 255, 0.7);
 }
 
-.favorites-section .quote-card strong {
+.favorites-section .quote-card strong,
+.favorites-section .quote-card .quote-author {
   display: block;
-  padding-left: 48px;
+  margin-top: 48px;
+  padding-left: 0;
+  margin-left: 0;
   font-size: 14px;
   font-weight: 400;
 }
@@ -369,7 +381,7 @@
   }
 }
 
-/* ── Desktop (1440px+) ──────────────────────────── */
+/* Desktop (1440px+) */
 
 @media screen and (min-width: 1440px) {
   .favorites-section .main-layout {
@@ -414,7 +426,9 @@
     margin-top: 132px;
   }
 }
+
 /* ===== FIX FAVORITES QUOTE TABLET ===== */
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .favorites-section .main-layout {
     display: flex;
@@ -438,12 +452,28 @@
     box-sizing: border-box;
   }
 
+  .favorites-section .quote-card p,
+  .favorites-section .quote-card strong,
+  .favorites-section .quote-card .quote-title,
+  .favorites-section .quote-card .quote-body,
+  .favorites-section .quote-card .quote-author {
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .favorites-section .quote-card strong,
+  .favorites-section .quote-card .quote-author {
+    margin-top: 32px;
+  }
+
   .favorites-section .sport-card,
   .favorites-section .favorites-picture,
   .favorites-section .sidebar-img {
     height: 141px;
   }
 }
+
 /* ===== FAVORITES EMPTY MESSAGE: MOBILE + TABLET ONLY ===== */
 
 @media screen and (max-width: 1439px) {
@@ -474,6 +504,21 @@
     font-size: 14px;
     line-height: 1.29;
   }
+
+  .favorites-section .quote-card p,
+  .favorites-section .quote-card strong,
+  .favorites-section .quote-card .quote-title,
+  .favorites-section .quote-card .quote-body,
+  .favorites-section .quote-card .quote-author {
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .favorites-section .quote-card strong,
+  .favorites-section .quote-card .quote-author {
+    margin-top: 32px;
+  }
 }
 
 /* TABLET */
@@ -483,5 +528,23 @@
     margin: 64px auto 0;
     font-size: 18px;
     line-height: 1.33;
+  }
+}
+
+/* ===== FIX QUOTE AUTHOR POSITION ===== */
+
+.favorites-section .quote-card .quote-author,
+.favorites-section .quote-card strong {
+  margin-left: 50px !important;
+  padding-left: 0 !important;
+  text-align: left !important;
+}
+
+/* MOBILE */
+@media screen and (max-width: 767px) {
+
+  .favorites-section .quote-card .quote-author,
+  .favorites-section .quote-card strong {
+    margin-left: 48px !important;
   }
 }
