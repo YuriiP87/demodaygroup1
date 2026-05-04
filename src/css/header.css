@@ -11,7 +11,19 @@
 /* LOGO */
 .logo {
   display: flex;
+  align-items: center;
   flex-shrink: 0;
+  width: 132px;
+  min-width: 132px;
+  height: 14px;
+  line-height: 0;
+}
+
+.logo svg {
+  display: block;
+  width: 132px;
+  min-width: 132px;
+  height: 14px;
 }
 
 /* NAV */
@@ -177,7 +189,7 @@
 
   .header-container {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 132px 1fr 156px;
     align-items: center;
   }
 
@@ -240,6 +252,10 @@
 
 /* DESKTOP */
 @media screen and (min-width: 1440px) {
+  .header-container {
+    grid-template-columns: 132px 1fr 156px;
+  }
+
   .nav {
     width: 265px;
   }
