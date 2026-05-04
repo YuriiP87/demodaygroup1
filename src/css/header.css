@@ -20,15 +20,27 @@
 }
 
 .nav-link {
-  padding: 8px 16px;
-  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 6px 12px;
+
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  border-radius: 999px;
   color: #f4f4f4;
   transition: all 0.3s ease;
 }
 
 .nav-link.active {
   background-color: #f4f4f4;
-  color: var(--dark);
+  color: #242424;
 }
 
 /* SOCIAL */
@@ -146,13 +158,18 @@
   display: block;
   width: 28px;
   height: 28px;
+  opacity: 0.8;
 }
 
 .mobile-social-list svg path {
   fill: #f4f4f4 !important;
 }
 
-/* DESKTOP */
+.mobile-social-list a:hover svg {
+  opacity: 0.8;
+}
+
+/* TABLET */
 @media screen and (min-width: 768px) {
   .header {
     padding: 32px 0 64px;
@@ -170,9 +187,15 @@
 
   .nav {
     display: flex;
-    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 233px;
+    height: 52px;
     padding: 8px;
-    border-radius: 30px;
+
+    border-radius: 999px;
     background-color: var(--dark);
     justify-self: center;
   }
@@ -187,6 +210,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 44px;
     height: 44px;
 
