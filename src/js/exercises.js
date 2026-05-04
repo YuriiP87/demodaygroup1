@@ -51,7 +51,7 @@ function exerciseMarkup(exercise) {
           <img src="${runningIcon}" alt="" />
         </span>
 
-        <h3>${exercise.name}</h3>
+        <h3>${exercise.name.charAt(0).toUpperCase() + exercise.name.slice(1)}</h3>
       </div>
 
       <p class="exercise-info">
